@@ -1,8 +1,13 @@
 import react from 'react';
+import Header from '../header/Header'
 
-const profile = () => {
+const profile = ({ email }) => {
+  console.log(email)
   return (
-    <h1>Hello!</h1>
+    <html>
+      <Header/>
+      <h1>Hello {email}!</h1>
+    </html>
   )
 }
 

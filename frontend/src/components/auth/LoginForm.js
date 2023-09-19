@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const LogInForm = ({ navigate }) => {
-  const [email, setEmail] = useState("");
+const LogInForm = ({ navigate, email, setEmail }) => {
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
@@ -22,7 +21,7 @@ const LogInForm = ({ navigate }) => {
       console.log("oop")
       let data = await response.json()
       window.localStorage.setItem("token", data.token)
-      navigate('/posts');
+      navigate('/profile');
     }
   }
 
