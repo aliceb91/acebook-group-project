@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 
 
-const ResetPassword = () => {
+const ResetPassword = ({navigate}) => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
 
-    const handleSubmit= async(event) => {
+    const handleSubmit = async(event) => {
         event.preventDefault();
         if (password == password2) {
             fetch('/users', {
-                method: 'post',
+                method: 'patch',
                 headers: {
                     'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    navigate('/login');
                 }
             })
         }
+
 
     }
 
