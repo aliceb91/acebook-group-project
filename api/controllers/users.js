@@ -12,8 +12,14 @@ const UsersController = {
     });
   },
   FindAndUpdate: async (req, res) => {
-    const user = await User.findOneAndUpdate({email: req.body.email}, {password: req.body.password}).exec()
-    res.status(200).json(user)
+    try {
+      const user = await User.findOneAndUpdate({email: req.body.email}, {password: req.body.password}).exec()
+      res.status(200).json(user)
+  }
+    catch(error){
+      res.status(400).json({message: 'Bad request'})
+    }
+    
   }
 };
 

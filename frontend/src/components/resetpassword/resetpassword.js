@@ -22,9 +22,13 @@ const ResetPassword = ({navigate}) => {
             })
             .then((response) => {
                 if (response.status === 200) {
-                    navigate('/login');
+                    navigate('/resetconfirmation');
+                } else {
+                    navigate('/resetfailed')
                 }
             })
+        } else {
+            navigate('/resetfailed')
         }
 
 
