@@ -21,7 +21,14 @@ const SignUpForm = ({ navigate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email: email, password: password, username: username, firstName: firstName, lastName: lastName })
+      body: JSON.stringify({ 
+        email: email, 
+        password: password, 
+        username: username, 
+        firstName: firstName, 
+        lastName: lastName,
+        signUpTimeAndDate: new Date().toLocaleString()
+      })
     })
       .then(response => {
         // Check the response status code
