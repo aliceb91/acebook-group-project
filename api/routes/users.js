@@ -4,7 +4,6 @@ const router = express.Router();
 const UsersController = require("../controllers/users");
 
 router.post("/", UsersController.Create);
-router.get("/", UsersController.Find);
-router.patch("/")
+router.patch("/", UsersController.FindAndUpdate);
 
 module.exports = router;
