@@ -9,6 +9,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ResetPassword from '../resetpassword/resetpassword';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } email={email} setEmail={setEmail}/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
           <Route path='/profile' element={<Profile navigate={ useNavigate() } email={email}/>}/>
+          <Route path='/reset' element={<ResetPassword navigate={ useNavigate() } />}/>
         </Routes>
     );
 }
