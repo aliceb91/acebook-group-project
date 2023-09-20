@@ -9,9 +9,9 @@ const ResetPassword = ({navigate}) => {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        if (password == password2) {
+        if (password === password2) {
             fetch('/users', {
-                method: 'patch',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
