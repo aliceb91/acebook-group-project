@@ -6,6 +6,7 @@ import { ReactComponent as PlusIcon } from '../../../images/plus.svg';
 import IconMenu from "../../components/dropdown/MuiDropdown.js";
 import Post from "../../components/post/Post";
 import Feed from "../../components/feed/Feed";
+import RightSidebar from "../../components/rightsidebar/RightSideBar";
 
 const Home = ({ navigate }) => {
   
@@ -46,6 +47,8 @@ const Home = ({ navigate }) => {
       <h1>Test home</h1>
       <IconMenu />
         <Feed posts={posts} logout={logout}/>
+        {<RightSidebar />}
+      
       </>
     )
   } else {
