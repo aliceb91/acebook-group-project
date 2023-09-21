@@ -45,7 +45,7 @@ const LogInForm = ({ navigate, email, setEmail }) => {
         </div>
         <div>
           <p>Don't have an account? <a href='/signup'>Sign up</a></p>
-          <p>Forgotten password? <a href='/signup'>Sign up</a></p>
+          <p>Forgotten password? <a href='/reset'>Reset Password</a></p>
         </div>
       </div>
     );
