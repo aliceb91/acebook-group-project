@@ -1,5 +1,5 @@
 import react from 'react';
-import Header from '../header/Header'
+import Header from '../../components/header/Header'
 
 const profile = ({ email }) => {
   console.log(email)

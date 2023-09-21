@@ -17,11 +17,11 @@ const dropdown = ({ navigate }) => {
         <div>
             <div className="main-container">
                 <div className='menu-trigger'>
-                    <img src={require('../../images/makerslogo.png')} alt='logo' />
+                    <img src={require('../../../images/makerslogo.png')} alt='logo' />
                 </div>
                 <div className="dropdown-menu">
                     <ul>
-                        <DropdownElement img = {require('../../images/user.png')} text={'My Profile'}/>
+                        <DropdownElement img = {require('../../../images/user.png')} text={'My Profile'}/>
                     </ul>
                 </div>
             </div>
