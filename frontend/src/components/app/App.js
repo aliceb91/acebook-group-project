@@ -4,6 +4,7 @@ import SignUpForm from '../user/SignUpForm'
 import React, { useState } from 'react';
 import Feed from '../feed/Feed'
 import Profile from '../profile/Profile'
+import Home from '../home/home'
 import {
   useNavigate,
   Routes,
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } email={email} setEmail={setEmail}/>}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
           <Route path='/profile' element={<Profile navigate={ useNavigate() } email={email}/>}/>
+          <Route path='/home' element={<Home navigate={ useNavigate() }/>}/>
         </Routes>
     );
 }
