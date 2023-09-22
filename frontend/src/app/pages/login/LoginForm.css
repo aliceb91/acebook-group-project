@@ -1,0 +1,113 @@
+body {
+    background-color: #303030;
+}
+
+form {
+    display: block;
+    align-items: center;
+    margin-top: 300px;
+    margin-left: 700px;
+    margin-right: 200px;
+    
+  }
+
+  h1 {
+    color: white;
+  }
+  
+  input {
+    margin: 20px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-color: #f5acf5;
+    height: 30px;
+    background-color: #f5acf5;
+  }
+
+  p {
+    margin-left: 700px;
+  }
+  
+  #signup {
+    margin-top: 10px;
+  }
+  #submit {
+    background-color: #f5acf5;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    width: 150px; /* Adjust the width to change the size */
+    height: 40px; /* Adjust the height to change the size */
+    padding: 10px 20px; 
+    margin-left: 0px;
+    position: relative;
+    left: 235px;
+    
+  }
+
+  label {
+    color: white;
+  }
+
+
+  #submit:hover {
+    background-color: #f847de;
+  }
+  
+  #signup {
+    position: relative;
+    bottom: 45px;
+    left: 25px;
+    font-size: 11px;
+    color: white;
+  }
+
+  #signup-link {
+    position: relative;
+    left: 10px;
+    color: #f6bdf6;
+    cursor: pointer;
+  }
+
+  #signup-link:hover {
+    color: white;
+  }
+
+  #forgotten-password {
+    position: relative;
+    left: 410px;
+    bottom: 67px;
+    font-size: 11px;
+    color: white;
+  }
+
+  #forgotten-password-link {
+    position: relative;
+    left: 10px;
+    color: #f6bdf6;
+    cursor: pointer;
+  }
+
+  link {
+    color: #f6bdf6;
+    cursor: pointer;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+  #forgotten-password-link:hover {
+    color: white;
+  }
+  
+
+  img {
+    position: absolute;
+    right: 600px;
+    width: 900px;
+    top: 100px;
+    /* opacity: 0.75; */
+  }

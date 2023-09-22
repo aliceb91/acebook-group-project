@@ -70,6 +70,7 @@ const SignUpForm = ({ navigate }) => {
     <div>
       <div>
         <form onSubmit={handleSubmit}>
+          <img src={require('../../../images/updated logo.png')} alt='logo' />
           {/* Email input */}
           <input placeholder="Email" id="email" type='text' value={email} onChange={handleEmailChange} />
           {/* Password input */}
