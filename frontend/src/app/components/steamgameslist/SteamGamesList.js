@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 
 function SteamGamesList() {
-    const [games, setGames] = useState([]);
+    const [news, setNews] = useState([]);
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -13,8 +13,8 @@ function SteamGamesList() {
                     throw new Error('Failed to fetch games from server');
                 }
                 const data = await response.json();
-                console.log(data)
-                setGames(data.meals);
+                console.log(data.appnews.newsitems)
+                setNews(data.appnews.newsitems);
             } catch (error) {
                 console.error('Error fetching games:', error);
             }
@@ -24,10 +24,13 @@ function SteamGamesList() {
     }, []);
 
     return (
-        <div>
-            <h1>Meals List</h1>
-            {games.map(meal => (
-                <h2 key={meal.idMeal}>{meal.idMeal}</h2>
+        <div className="steam-api">
+            <h1>News List</h1>
+            {news.map(article => (
+                <>
+                <h2 key={article.title}>{article.title}</h2>
+                <h2 key={article.contents}>{article.contents}</h2>
+                </>
             ))}
         </div>
     );

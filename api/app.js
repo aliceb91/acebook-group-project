@@ -47,7 +47,7 @@ app.use("/users", usersRouter);
 app.get('/top-ten-games', async (req, res) => {
   try {
       const API_TOKEN = 'YOUR_STEAM_API_TOKEN';
-      const response = await fetch('https://themealdb.com/api/json/v1/1/random.php');
+      const response = await fetch(' http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json');
       
       if (!response.ok) {
           throw new Error('Failed to fetch from Steam API');

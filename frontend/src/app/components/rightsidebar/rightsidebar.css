@@ -13,7 +13,7 @@
     border-bottom: 10px solid #585858;
     padding: 10px; 
     overflow-y: auto;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
 }
