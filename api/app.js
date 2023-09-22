@@ -3,13 +3,14 @@ const express = require("express");
 const path = require("path");
 const logger = require("morgan");
 const JWT = require("jsonwebtoken");
+const cors = require('cors');
 
 const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
 
 const app = express();
-
+app.use(cors());
 // setup for receiving JSON
 app.use(express.json())
 
@@ -43,6 +44,23 @@ app.use("/posts", tokenChecker, postsRouter);
 app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
 
+app.get('/top-ten-games', async (req, res) => {
+  try {
+      const API_TOKEN = 'YOUR_STEAM_API_TOKEN';
+      const response = await fetch('https://themealdb.com/api/json/v1/1/random.php');
+      
+      if (!response.ok) {
+          throw new Error('Failed to fetch from Steam API');
+      }
+      const gameData = await response.json(); 
+      res.json(gameData);
+  } catch (error) {
+      console.error('Error fetching top ten games:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));
@@ -57,5 +75,9 @@ app.use((err, req, res) => {
   // respond with details of the error
   res.status(err.status || 500).json({message: 'server error'})
 });
+
+
+
+
 
 module.exports = app;

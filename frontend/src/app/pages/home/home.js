@@ -7,6 +7,7 @@ import IconMenu from "../../components/dropdown/MuiDropdown.js";
 import Post from "../../components/post/Post";
 import Feed from "../../components/feed/Feed";
 import RightSidebar from "../../components/rightsidebar/RightSideBar";
+import SteamGamesList from "../../components/steamgameslist/SteamGamesList";
 
 const Home = ({ navigate }) => {
   
@@ -44,10 +45,12 @@ const Home = ({ navigate }) => {
             <p>Sign Up</p>
         </NavbarItem>
       </Navbar>
-      <h1>Test home</h1>
+      <h1>Test home</h1>s
       <IconMenu />
         <Feed posts={posts} logout={logout}/>
-        {<RightSidebar />}
+      {<RightSidebar />}
+    
+      
       
       </>
     )

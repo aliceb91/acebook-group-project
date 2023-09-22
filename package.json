@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "eslint": "^8.49.0"
+    "cors": "^2.8.5",
+    "eslint": "^8.49.0",
+    "node-fetch": "^3.3.2"
   }
 }
