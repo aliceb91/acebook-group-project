@@ -1,11 +1,11 @@
 import React, { useEffect, useState} from "react";
 import Navbar from "../../components/navbar/navbar";
 import NavbarItem from "../../components/navbar/navbarItem.js";
-import DropdownElement from '../../components/dropdownElement/dropdownElement.js'
 import { ReactComponent as PlusIcon } from '../../../images/plus.svg';
-import IconMenu from "../../components/dropdown/MuiDropdown.js";
 // import Post from "../../components/post/Post";
 import Feed from "../../components/feed/Feed";
+import Dropdown from "../../components/dropdown/dropdown";
+import Submit from "../../components/submit/submit";
 
 const Home = ({ navigate }) => {
   
@@ -37,15 +37,10 @@ const Home = ({ navigate }) => {
   if(token) {
     return(
       <>
-      <Navbar>
-        <NavbarItem icon='🏠' link='/home'/>
-        <NavbarItem icon= {<PlusIcon />} link='/signup'>
-            <p>Sign Up</p>
-        </NavbarItem>
-      </Navbar>
-      <h1>Test home</h1>
-      <IconMenu />
-        <Feed logout={logout} token={token} setToken={setToken}/>
+      <Navbar logout={logout}/>
+      <h1>GameBook</h1>
+      <Submit token={token} setToken={setToken}/>
+      <Feed logout={logout} token={token} setToken={setToken}/>
       </>
     )
   } else {
