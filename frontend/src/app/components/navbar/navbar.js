@@ -13,15 +13,22 @@ const Navbar = (props) => {
             <ul>
                 <Link to="/home"><img src={require('../../../images/gamebook.png')} alt='logo' /></Link>
             </ul>
+            <div className='page-links-single'>
             <ul>
                 <Link to="/store">Store</Link>
             </ul>
+            </div>
+            <div className='page-links-single'>
             <ul>
                 <Link to="/mylibrary">My Library</Link>
             </ul> 
+            </div>
+            <div className='page-links-single'>
             <ul>
                 <Link to="/squads">Squads</Link>       
             </ul>
+            </div>
+            
             <ul className='navbar-nav'> 
                 <NavbarItem icon= {<PlusIcon />} >
                     <Dropdown logout={props.logout}/>

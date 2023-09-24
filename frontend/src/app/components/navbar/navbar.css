@@ -25,6 +25,7 @@ a {
     background-color: var(--bg);
     padding: 0 1rem;
     border-bottom: var(--border);
+    
 }
 
 .navbar-nav {
@@ -73,4 +74,8 @@ a {
     justify-content: space-between;
     align-items: center;
     color: white;
+}
+
+.page-links-single:hover {
+    color: gray;
 }
