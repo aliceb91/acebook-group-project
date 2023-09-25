@@ -13,14 +13,20 @@ const UsersController = {
   },
   FindAndUpdate: async (req, res) => {
     try {
-      const user = await User.findOneAndUpdate({email: req.body.email}, {password: req.body.password}).exec()
-      res.status(200).json(user)
-  }
-    catch(error){
-      res.status(400).json({message: 'Bad request'})
+        const existingUser = await User.findOne({ email: req.body.email }).exec();
+        if (!existingUser) {
+            return res.status(404).json();
+        }
+        else {
+          const user = await User.findOneAndUpdate({email: req.body.email}, {password: req.body.password}, {upsert: false}).exec()
+          return res.status(200).json(user);
+        }
+        
+    } catch (error) {
+        res.status(400).json();
     }
-    
-  }
+}
+
 };
 
 module.exports = UsersController;

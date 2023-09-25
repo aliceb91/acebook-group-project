@@ -12,6 +12,7 @@ import {
 import ResetPassword from './pages/resetpassword/resetpassword';
 import ResetConfirmation from './pages/resetconfirmation/resetconfirmation';
 import ResetFailed from './pages/resetfailed/resetfailed';
+import NoEmail from './pages/noemail/noemail';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/reset' element={<ResetPassword navigate={ useNavigate() } />}/>
           <Route path='/resetconfirmation' element={<ResetConfirmation navigate={ useNavigate() } />}/>
           <Route path='/resetfailed' element={<ResetFailed navigate={ useNavigate() } />}/>
+          <Route path='/noemail' element={<NoEmail navigate={ useNavigate() } />}/>
         </Routes>
     );
 }
