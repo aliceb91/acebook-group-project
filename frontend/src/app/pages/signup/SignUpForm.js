@@ -83,7 +83,8 @@ const SignUpForm = ({ navigate }) => {
         </form>
         </div>
       <div>
-        <Link to="/login"> Login </Link>
+        <a href='/login'>Login</a>
+        {/* //<Link to="/login"> Login </Link> */}
       </div>
     </div>
   );
