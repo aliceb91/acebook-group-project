@@ -3,13 +3,17 @@ const express = require("express");
 const path = require("path");
 const logger = require("morgan");
 const JWT = require("jsonwebtoken");
+const cors = require('cors');
+require('dotenv').config();
+
 
 const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
+const steamRouter = require("./routes/steam");
 
 const app = express();
-
+app.use(cors());
 // setup for receiving JSON
 app.use(express.json())
 
@@ -42,6 +46,25 @@ const tokenChecker = (req, res, next) => {
 app.use("/posts", tokenChecker, postsRouter);
 app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
+app.use("/api/steam-news", steamRouter);
+
+
+
+
+/*app.get('/api/steam-news', async (req, res) => {
+  try {
+      const response = await fetch(' http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json');
+      
+      if (!response.ok) {
+          throw new Error('Failed to fetch from Steam API');
+      }
+      const gameData = await response.json(); 
+      res.json(gameData);
+  } catch (error) {
+      console.error('Error fetching news:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});*/
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -57,5 +80,9 @@ app.use((err, req, res) => {
   // respond with details of the error
   res.status(err.status || 500).json({message: 'server error'})
 });
+
+
+
+
 
 module.exports = app;

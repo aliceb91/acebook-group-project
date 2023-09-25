@@ -4,6 +4,8 @@ import NavbarItem from "../../components/navbar/navbarItem.js";
 import { ReactComponent as PlusIcon } from '../../../images/plus.svg';
 // import Post from "../../components/post/Post";
 import Feed from "../../components/feed/Feed";
+import RightSidebar from "../../components/rightsidebar/RightSideBar";
+import SteamGamesList from "../../components/steamgameslist/SteamGamesList";
 import Dropdown from "../../components/dropdown/dropdown";
 import Submit from "../../components/submit/submit";
 
@@ -41,6 +43,7 @@ const Home = ({ navigate }) => {
       <h1>GameBook</h1>
       <Submit token={token} setToken={setToken}/>
       <Feed logout={logout} token={token} setToken={setToken}/>
+      {<RightSidebar />}
       </>
     )
   } else {
