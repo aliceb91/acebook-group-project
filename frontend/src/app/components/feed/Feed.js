@@ -29,7 +29,7 @@ const Feed = ({ navigate, logout, token , setToken}) => {
           </button>
         <div id='feed' role="feed">
             {posts.map(
-              (post) => ( <Post post={ post } key={ post._id } /> )
+              (post) => ( <Post token={token} setToken={setToken} post={ post } key={ post._id } /> )
             )}
         </div>
       </>
