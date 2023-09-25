@@ -4,14 +4,15 @@ const navigate = () => {}
 describe("Signing up", () => {
   it("calls the /users endpoint", () => {
     cy.mount(<SignUpForm navigate={navigate}/>)
-
-    cy.intercept('POST', '/users', { message: "OK" }).as("signUpRequest")
-
-    cy.get("#email").type("someone@example.com");
+    cy.intercept('POST','/users', { status: 201 }).as("signupRequest")
+    cy.get("#email").type("john1@test.com");
     cy.get("#password").type("password");
+    cy.get("#username").type("john1");
+    cy.get("#first-name").type("John");
+    cy.get("#last-name").type("Doe");
     cy.get("#submit").click();
-    cy.wait('@signUpRequest').then( interception => {
-      expect(interception.response.body.message).to.eq("OK")
+    cy.wait('@signupRequest').then( interception => {
+      expect(interception.response.body.status).to.eq(201)
     })
   })
 })
