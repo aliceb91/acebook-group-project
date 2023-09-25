@@ -3,7 +3,7 @@ const navigate = () => {}
 
 describe("Feed", () => {
   it("Calls the /posts endpoint and lists all the posts", () => {
-    window.localStorage.setItem("token", "fakeToken")
+    //window.localStorage.setItem("token", "fakeToken")
     
     cy.intercept('GET', '/posts', (req) => {
         req.reply({
@@ -16,7 +16,7 @@ describe("Feed", () => {
       }
     ).as("getPosts")
 
-    cy.mount(<Feed navigate={navigate}/>)
+    cy.mount(<Feed navigate={navigate} token='tokon' setToken={()=>{}} />)
     
     cy.wait("@getPosts").then(() =>{
       cy.get('[data-cy="post"]')

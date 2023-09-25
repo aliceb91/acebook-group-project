@@ -9,7 +9,9 @@ const NavbarItem = (props) => {
 
     return (
         <li className='nav-item'>
-            <Link to={props.link} className='icon-button'>{props.icon} onClick={() => setOpen(!open)}</Link>
+            <a href="#" className='icon-button' onClick={() => setOpen(!open)}>
+                {props.icon}
+            </a>
             
             {open && props.children}
         </li>
