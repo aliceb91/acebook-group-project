@@ -36,16 +36,14 @@ const LogInForm = ({ navigate, email, setEmail }) => {
 
 
     return (
-      <div>
-        <div>
+      <div id="fullPage">
+        <img id="frontLogo" src={require('../../../images/updated logo.png')} alt='logo' />
+        <div id="loginForm">
           <form onSubmit={handleSubmit}>
-            <img src={require('../../../images/updated logo.png')} alt='logo' />
             <input placeholder='Email' id="email" type='text' value={ email } onChange={handleEmailChange} />
             <input placeholder='Password' id="password" type='password' value={ password } onChange={handlePasswordChange} />
             <input role='submit-button' id='submit' type="submit" value="Submit" />
           </form>
-        </div>
-        <div>
           <p id="signup">Don't have an account? <a href='/signup' id="signup-link">Sign up</a></p>
           <p id="forgotten-password">Forgotten password? <a href='/reset' id="forgotten-password-link">Reset Password</a></p>
         </div>

@@ -1,21 +1,30 @@
-body {
+html, body {
     background-color: #303030;
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
-form {
+#fullPage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+#loginForm {
     display: block;
     align-items: center;
-    margin-top: 300px;
+    /*margin-top: 300px;
     margin-left: 700px;
-    margin-right: 200px;
-    
+    margin-right: 200px;*/ 
   }
 
   h1 {
     color: white;
   }
   
-  input {
+  #email, #password {
     margin: 20px;
     padding: 10px;
     width: 100%;
@@ -24,10 +33,6 @@ form {
     border-color: #f5acf5;
     height: 30px;
     background-color: #f5acf5;
-  }
-
-  p {
-    margin-left: 700px;
   }
   
   #signup {
@@ -103,11 +108,10 @@ form {
     color: white;
   }
   
-
-  img {
-    position: absolute;
-    right: 600px;
+  #frontLogo {
+    /*position: absolute;*/
+    /*right: 600px;*/
     width: 900px;
-    top: 100px;
+    /*top: 100px;*/
     /* opacity: 0.75; */
   }

@@ -11,7 +11,7 @@ const Navbar = (props) => {
         <nav className='navbar'> 
         <div className='page-links'>
             <ul>
-                <Link to="/home"><img src={require('../../../images/gamebook.png')} alt='logo' /></Link>
+                <Link to="/home"><img id="logo" src={require('../../../images/gamebook.png')} alt='logo' /></Link>
             </ul>
             <div className='page-links-single'>
             <ul>

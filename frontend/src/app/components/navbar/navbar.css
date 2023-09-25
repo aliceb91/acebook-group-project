@@ -21,7 +21,8 @@ a {
 
 
 .navbar {
-    height: 100px;
+    height: 48px;
+    width: 100%;
     background-color: var(--bg);
     padding: 0 1rem;
     border-bottom: var(--border);
@@ -78,4 +79,8 @@ a {
 
 .page-links-single:hover {
     color: gray;
+}
+
+#logo {
+    width: 48px;
 }

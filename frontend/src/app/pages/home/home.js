@@ -39,11 +39,13 @@ const Home = ({ navigate }) => {
   if(token) {
     return(
       <>
-      <Navbar logout={logout}/>
-      <h1>GameBook</h1>
-      <Submit token={token} setToken={setToken}/>
-      <Feed logout={logout} token={token} setToken={setToken}/>
-      {<RightSidebar />}
+        <Navbar logout={logout}/>
+        <div id="homepage">
+          <h1>GameBook</h1>
+          <Submit token={token} setToken={setToken}/>
+          <Feed logout={logout} token={token} setToken={setToken}/>
+          {<RightSidebar />}
+        </div>
       </>
     )
   } else {
