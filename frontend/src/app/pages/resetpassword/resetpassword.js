@@ -48,6 +48,7 @@ const ResetPassword = ({navigate}) => {
 
     return (
         <form onSubmit={handleSubmit}>
+            <img src={require('../../../images/updated logo.png')} alt='logo' />
             <label for = "email">Email Address</label><br/>
             <input placeholder="Email" type = "text" id = "email" name = "email" onChange={handleEmailChange}/><br/>
             <label for = "password1">Enter Password</label><br/>
