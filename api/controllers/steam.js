@@ -2,7 +2,7 @@
 const SteamApi = {
     FindNews: (async (req, res) => {
         try {
-            const response = await fetch(' http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json');
+            const response = await fetch(' http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=730&count=3&maxlength=300&format=json');
             if (!response.ok) {
                 throw new Error('Failed to fetch from Steam API');
             }
