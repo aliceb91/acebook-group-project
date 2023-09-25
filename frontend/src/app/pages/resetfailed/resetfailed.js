@@ -3,8 +3,8 @@ const ResetFailed = () => {
     
     return (
         <>
-        <h2>Reset Unsuccessful</h2>
-        <a href = '/reset'>Reset Password Here</a>
+        <h1>Reset Unsuccessful</h1>
+        <a href = '/reset' id ='link'>Reset Password Here</a>
         </>
     )
 

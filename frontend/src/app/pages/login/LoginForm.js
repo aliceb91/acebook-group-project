@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../../pages/login/LoginForm.css";
 
 const LogInForm = ({ navigate, email, setEmail }) => {
   const [password, setPassword] = useState("");
@@ -38,14 +39,15 @@ const LogInForm = ({ navigate, email, setEmail }) => {
       <div>
         <div>
           <form onSubmit={handleSubmit}>
+            <img src={require('../../../images/updated logo.png')} alt='logo' />
             <input placeholder='Email' id="email" type='text' value={ email } onChange={handleEmailChange} />
             <input placeholder='Password' id="password" type='password' value={ password } onChange={handlePasswordChange} />
             <input role='submit-button' id='submit' type="submit" value="Submit" />
           </form>
         </div>
         <div>
-          <p>Don't have an account? <a href='/signup'>Sign up</a></p>
-          <p>Forgotten password? <a href='/reset'>Reset Password</a></p>
+          <p id="signup">Don't have an account? <a href='/signup' id="signup-link">Sign up</a></p>
+          <p id="forgotten-password">Forgotten password? <a href='/reset' id="forgotten-password-link">Reset Password</a></p>
         </div>
       </div>
     );
