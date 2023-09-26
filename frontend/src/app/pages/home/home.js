@@ -5,7 +5,7 @@ import Feed from "../../components/feed/Feed";
 import RightSidebar from "../../components/rightsidebar/RightSideBar";
 import SteamGamesList from "../../components/steamgameslist/SteamGamesList";
 import Submit from "../../components/submit/submit";
-import "./home.css"
+import styles from "./home.module.css"
 import Friends from "../../components/friends/friends";
 
 const Home = ({ navigate }) => {
@@ -39,10 +39,10 @@ const Home = ({ navigate }) => {
     return(
       <>
         <Navbar logout={logout}/>
-        <div id="homepage">
+        <div className={styles.homepage}>
           <h1>GameBook</h1>
           <Submit token={token} setToken={setToken}/>
-          <div id="content">
+          <div className={styles.content}>
             <Friends />
             <Feed logout={logout} token={token} setToken={setToken}/>
             {<RightSidebar />}

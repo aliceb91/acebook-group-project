@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import DropdownElement from '../dropdownElement/dropdownElement'
-import './dropdown.css'
+import styles from './dropdown.module.css'
 import { CSSTransition } from 'react-transition-group';
 
 const Dropdown = ({ props }) => { 
@@ -10,24 +10,24 @@ const Dropdown = ({ props }) => {
 
     const DropdownItem = (props) => {
         return (
-                <a href="#" className='menu-item' onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-                    <span className='icon-button'>{props.leftIcon}</span>
+                <a href="#" className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+                    <span className={styles.iconButton}>{props.leftIcon}</span>
                     {props.children}
 
-                    <span className='icon-right'>{props.rightIcon}</span>
+                    <span className={styles.iconRight}>{props.rightIcon}</span>
                 </a>
         );
     }
 
     return (
-        <div className='dropdown'> 
+        <div className={styles.dropdown}> 
             <CSSTransition
                 in={activeMenu === 'main'} 
                 unmountOnExit
                 timeout={500}
-                classNames="menu-primary"
+                classNames={styles.menuPrimary}
             >
-                <div className='menu'>
+                <div className={styles.menu}>
 
                     <DropdownItem leftIcon='🏠' rightIcon='Home' ></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Settings' goToMenu="test"></DropdownItem>
@@ -38,9 +38,9 @@ const Dropdown = ({ props }) => {
                 in={activeMenu === 'test'} 
                 unmountOnExit
                 timeout={500}
-                classNames="menu-secondary"
+                classNames={styles.menuSecondary}
             >
-                <div className='menu'>
+                <div className={styles.menu}>
 
                     <DropdownItem rightIcon='Back' goToMenu='main'></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Stuff'></DropdownItem>

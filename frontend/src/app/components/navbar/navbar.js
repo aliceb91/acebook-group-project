@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import './navbar.css';
+import styles from './navbar.module.css';
 import { ReactComponent as PlusIcon } from '../../../images/plus.svg';
 import Dropdown from '../dropdown/dropdown';
 import NavbarItem from '../navbar/navbarItem.js';
@@ -8,28 +8,28 @@ import NavbarItem from '../navbar/navbarItem.js';
 
 const Navbar = (props) => {
     return (
-        <nav className='navbar'> 
-        <div className='page-links'>
-            <ul>
-                <Link to="/home"><img id="logo" src={require('../../../images/gamebook.png')} alt='logo' /></Link>
+        <nav className={styles.navbar}> 
+        <div className={styles.pageLinks}>
+            <ul className={styles.listItem}>
+                <Link to="/home"><img className={styles.logo} src={require('../../../images/gamebook.png')} alt='logo' /></Link>
             </ul>
-            <div className='page-links-single'>
-            <ul>
-                <Link to="/store">Store</Link>
-            </ul>
+            <div className={styles.pageLinksSingle}>
+                <ul className={styles.listItem}>
+                    <a className={styles.listItem} href="/store">Store</a>
+                </ul>
             </div>
-            <div className='page-links-single'>
-            <ul>
-                <Link to="/mylibrary">My Library</Link>
-            </ul> 
+            <div className={styles.pageLinksSingle}>
+                <ul className={styles.listItem}>
+                    <a className={styles.listItem} href="/mylibrary">My Library</a>
+                </ul> 
             </div>
-            <div className='page-links-single'>
-            <ul>
-                <Link to="/squads">Squads</Link>       
-            </ul>
+            <div className={styles.pageLinksSingle}>
+                <ul className={styles.listItem}>
+                    <a className={styles.listItem} href="/squads">Squads</a>       
+                </ul>
             </div>
             
-            <ul className='navbar-nav'> 
+            <ul className={styles.navbarNav}> 
                 <NavbarItem icon= {<PlusIcon />} >
                     <Dropdown logout={props.logout}/>
                 </NavbarItem>

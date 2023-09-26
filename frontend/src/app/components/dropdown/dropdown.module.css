@@ -1,4 +1,4 @@
-div {
+.dropdown, .menu {
   --bg: rgb(31, 27, 30);
   --bg-accent: #3855c8;
   --text-color: white;
@@ -7,17 +7,6 @@ div {
   --border: 1px solid #555659;
   --speed: 300ms;
 
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: var(--text--color);
 }
 
 .dropdown {
@@ -38,68 +27,70 @@ a {
   width: 100%;
 }
 
-.menu-item {
+.menuItem {
   height: 50px;
   display: flex;
   align-items: center;
   border-radius: var(--border-radius);
   transition: background var(--speed);
   padding: 0.5rem;
+  text-decoration: none;
+  color: var(--text--color);
 }
 
-.menu-item .icon-button {
+.menuItem .iconButton {
   margin-right: 0.5rem;
 }
 
 
-.menu-item .icon-button:hover {
+.menuItem .iconButton:hover {
   filter: none;
 }
 
-.menu-item:hover {
-  background-color: rgb(228, 186, 217);
+.menuItem:hover {
+  background-color: #f5acf5;;
 }
 
-.icon-right {
+.iconRight {
   margin-left: auto;
 }
 
-.menu-primary-enter{
+.menuPrimaryEnter{
   position: absolute;
   transform: translateX(-110%);
 }
 
-.menu-primary-enter-active{
+.menuPrimaryEnterActive{
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-primary-exit{
+.menuPrimaryExit{
   position: absolute;
   transform: translateX(0%);
 } 
 
-.menu-primary-exit-active{
+.menuPrimaryExitActive{
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 } 
 
-.menu-secondary-enter{
+.menuSecondaryEnter{
   position: absolute;
   transform: translateX(110%);
 }
 
-.menu-secondary-enter-active{
+.menuSecondaryEnterActive{
   transform: translateX(0%);
   transition: all var(--speed) ease;
 }
 
-.menu-secondary-exit{
+.menuSecondaryExit{
   position: absolute;
   transform: translateX(0%);
 } 
 
-.menu-secondary-exit-active{
+.menuSecondaryExitActive{
   transform: translateX(110%);
   transition: all var(--speed) ease;
 } 
