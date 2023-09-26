@@ -1,0 +1,4 @@
+#wholeFeed {
+  display: flex;
+  flex-direction: column;
+}

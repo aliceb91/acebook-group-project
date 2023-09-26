@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
+import styles from './signUp.module.css'
 
 
 const SignUpForm = ({ navigate }) => {
@@ -67,24 +68,26 @@ const SignUpForm = ({ navigate }) => {
 
 
   return (
-    <div>
+    <div className={styles.fullPage}>
       <div>
-        <form onSubmit={handleSubmit}>
-          <img src={require('../../../images/updated logo.png')} alt='logo' />
+        <img className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
+      </div>
+      <div className={styles.signupArea}>
+        <h2>Create New Account:</h2>
+        <form className={styles.signupForm} onSubmit={handleSubmit}>
           {/* Email input */}
-          <input placeholder="Email" id="email" type='text' value={email} onChange={handleEmailChange} />
+          <input placeholder="Email" className={styles.email} type='text' value={email} onChange={handleEmailChange} />
           {/* Password input */}
-          <input placeholder="Password" id="password" type='password' value={password} onChange={handlePasswordChange} />
+          <input placeholder="Password" className={styles.password} type='password' value={password} onChange={handlePasswordChange} />
           
-          <input placeholder="Username" id="username" type='username' value={username} onChange={handleUsernameChange} />
-          <input placeholder="First name" id="first-name" type='first-name' value={firstName} onChange={handleFirstNameChange} />
-          <input placeholder="Last name" id="last-name" type='last-name' value={lastName} onChange={handleLastNameChange} />
+          <input placeholder="Username" className={styles.username} type='username' value={username} onChange={handleUsernameChange} />
+          <input placeholder="First name" className={styles.firstName} type='first-name' value={firstName} onChange={handleFirstNameChange} />
+          <input placeholder="Last name" className={styles.lastName} type='last-name' value={lastName} onChange={handleLastNameChange} />
           {/* Submit button */}
-          <input id='submit' type="submit" value="Submit" />
+          <input className={styles.submit} type="submit" value="Submit" />
         </form>
-        </div>
-      <div>
-        <a href='/login'>Login</a>
+        <div className={styles.login}>Already have an account?</div>
+        <button className={styles.loginButton} href='/login'>Login</button>
         {/* //<Link to="/login"> Login </Link> */}
       </div>
     </div>
