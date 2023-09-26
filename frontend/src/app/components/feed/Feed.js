@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
 
+
 const Feed = ({ navigate, logout, token , setToken}) => {
 
   const [posts, setPosts] = useState([]);
@@ -29,7 +30,7 @@ const Feed = ({ navigate, logout, token , setToken}) => {
           </button>
         <div id='feed' role="feed">
             {posts.map(
-              (post) => ( <Post token={token} setToken={setToken} post={ post } key={ post._id } /> )
+              (post) => ( <Post token={token} setPosts = {setPosts} setToken={setToken} post={ post } key={ post._id } /> )
             )}
         </div>
       </>

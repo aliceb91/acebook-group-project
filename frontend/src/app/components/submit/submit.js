@@ -35,6 +35,10 @@ const Submit = ({ token, setToken }) => {
         console.error("Error submitting post:", error);
       });
     }
+
+    
+
+    setMessage("");
   };
 
   const handleMessageChange = (event) => {

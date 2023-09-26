@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import LikeButton from '../likebutton/likebutton';
+import Comment from '../comment/comment';
 
-const Post = ({post, token, setToken}) => {
+const Post = ({post, token, setToken, setPosts}) => {
 
-  console.log(post._id)
   const handleDeletePost = async (event) => {
     event.preventDefault();
 
@@ -28,10 +29,25 @@ const Post = ({post, token, setToken}) => {
         window.localStorage.setItem("token", data.token);
         setToken(data.token); // Update the token using setToken
       })
+      .then(() => { 
+        if(token) {
+        fetch("/posts", {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+          .then(response => response.json())
+          .then(async data => {
+            window.localStorage.setItem("token", data.token)
+            setToken(window.localStorage.getItem("token"))
+            setPosts(data.posts);
+          })
+      }})
       .catch(error => {
         console.error("Error submitting post:", error);
       });
     }
+  
   };
 
 
@@ -41,6 +57,8 @@ const Post = ({post, token, setToken}) => {
     <div className='post-container'>
     <article data-cy="post" key={ post._id }>{ post.message } <p>{ post.postTimeAndDate }</p></article>
     <button><span onClick={handleDeletePost}> Delete</span></button>
+    <LikeButton post={post} token={token} setToken={setToken}/>
+    <Comment post={post} token={token} setToken={setToken}/>
     </div>
   )
 }
