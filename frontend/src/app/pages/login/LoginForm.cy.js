@@ -1,9 +1,11 @@
 import LoginForm from './LoginForm'
 const navigate = () => {}
+const setEmail = () => {}
+const setpassword = () => {}
 
 describe("Logging in", () => {
   it("calls the /tokens endpoint", () => {
-    cy.mount(<LoginForm navigate={navigate}/>)
+    cy.mount(<LoginForm navigate={navigate} setEmail={setEmail} setpassword={setpassword}/>)
 
     cy.intercept('POST', '/tokens', { token: "fakeToken" }).as("loginRequest")
 
