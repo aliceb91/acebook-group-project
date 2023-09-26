@@ -16,3 +16,15 @@ describe("Signing up", () => {
     })
   })
 })
+
+describe("Failed",()=>{
+  it("call the /user and failsed", ()=>{
+    cy.mount(<SignUpForm navigate={navigate}/>)
+    cy.get('#username').type('John')
+    cy.get('#submit').click()
+    cy.wait('@SignUpform').then( interception => {
+      expect(interception.response.body.status).to.eq(400)
+    })
+
+  })
+})
