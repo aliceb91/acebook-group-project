@@ -23,8 +23,8 @@ const ResetPassword = ({navigate}) => {
             .then((response) => {
                 if (response.status === 200) {
                     navigate('/resetconfirmation');
-                } else {
-                    navigate('/resetfailed')
+                } else if (response.status === 404) {
+                    navigate('/noemail')
                 }
             })
         } else {
