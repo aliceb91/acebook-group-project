@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './resetpassword.module.css'
 
 
 const ResetPassword = ({navigate}) => {
@@ -47,16 +48,20 @@ const ResetPassword = ({navigate}) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <img src={require('../../../images/updated logo.png')} alt='logo' />
-            <label for = "email">Email Address</label><br/>
-            <input placeholder="Email" type = "text" id = "email" name = "email" onChange={handleEmailChange}/><br/>
-            <label for = "password1">Enter Password</label><br/>
-            <input placeholder = "Enter Password" type = "text" id = "password1" name = "password1" onChange={handlePasswordChange}/><br/>
-            <label for = "password2">ReEnter Password</label><br/>
-            <input placeholder = "ReEnter Password" type = "text" id = "password2" name = "password2" onChange={handleSecondPassword}/><br/>
-            <input id='submit' type="submit" value="Submit" />
-        </form>
+        <div className={styles.fullPage}>
+            <div>
+                <img className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
+            </div>
+            <div className={styles.resetArea}>
+                <h2>Reset Password:</h2>
+                <form className={styles.resetForm} onSubmit={handleSubmit}>
+                    <input placeholder="Email" type = "text" className={styles.email} name = "email" onChange={handleEmailChange}/>
+                    <input placeholder = "Enter Password" type = "text" className={styles.password1} name = "password1" onChange={handlePasswordChange}/>
+                    <input placeholder = "ReEnter Password" type = "text" className={styles.password2} name = "password2" onChange={handleSecondPassword}/>
+                    <input className={styles.submit} type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
     )
 
 }

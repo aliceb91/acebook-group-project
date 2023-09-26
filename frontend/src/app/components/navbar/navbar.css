@@ -22,7 +22,7 @@ a {
 
 .navbar {
     height: 48px;
-    width: 100%;
+    width: (100% - 30px);
     background-color: var(--bg);
     padding: 0 1rem;
     border-bottom: var(--border);
