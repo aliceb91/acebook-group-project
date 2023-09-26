@@ -1,10 +1,10 @@
 import React from 'react';
-import './rightsidebar.css';
+import styles from './rightsidebar.module.css';
 import SteamGamesList from '../steamgameslist/SteamGamesList'
 
 const RightSideBar = () => {
     return (
-        <div className="right-sidebar">
+        <div className={styles.rightSidebar}>
             <SteamGamesList />
             <p></p>
         </div>

@@ -4,3 +4,9 @@ html, body {
   width: 100%;
   display: flex;
 }
+
+h1, h2, h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}

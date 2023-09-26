@@ -1,5 +1,5 @@
 // SteamGamesList.js
-
+import styles from './steamgameslist.module.css';
 import React, { useState, useEffect } from 'react';
 
 
@@ -39,11 +39,11 @@ function SteamNewsList() {
 
     return (
         <div className="steam-api">
-            <h2>News List</h2>
+            <h2 className={styles.newsTitle}>News List</h2>
             {news.map(article => (
                 <>
-                <h3 key={article.title}>{article.title}</h3>
-                <p key={article.contents}>{article.contents}</p>
+                <h3 className={styles.articleTitle} key={article.title}>{article.title}</h3>
+                <p className={styles.contents} key={article.contents}>{article.contents}</p>
                 </>
             ))}
         </div>

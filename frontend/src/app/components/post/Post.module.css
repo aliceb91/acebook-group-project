@@ -1,0 +1,37 @@
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #585858;
+  color: white;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.controlArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.deleteSubmit {
+  background-color: #f5acf5;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 2px; 
+}
+
+.commentBody {
+  margin-top: 8px;
+  font-size: 16px;
+}

@@ -1,37 +1,10 @@
 import React, { useState, useEffect } from "react";
+import styles from './comment.module.css'
 
-const Comment = ({ token, setToken, post}) => {
+const Comment = ({ token, setToken, post, setPosts}) => {
 
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
-
-   
-
-    useEffect(() => {
-        if(token) {
-          fetch(`/posts/${post._id}/comment`, {
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-          })
-            .then(response => response.json())
-            .then(async data => {
-              window.localStorage.setItem("token", data.token)
-              setToken(window.localStorage.getItem("token"))
-              setComments(data.post.comments);
-            })
-        }
-      }, [])
-
-    
-
-    const commentList = comments.map((comment) => {
-        return (
-            <div className="comment-list">
-                <p>{comment}</p>
-            </div>
-        );
-    });
 
     const handleAddComment = async (event) => {
         event.preventDefault();
@@ -60,6 +33,20 @@ const Comment = ({ token, setToken, post}) => {
                     window.localStorage.setItem("token", data.token);
                     setToken(data.token); // Update the token using setToken
                 })
+                .then(() => { 
+                    if(token) {
+                    fetch("/posts", {
+                      headers: {
+                        'Authorization': `Bearer ${token}`
+                      }
+                    })
+                      .then(response => response.json())
+                      .then(async data => {
+                        window.localStorage.setItem("token", data.token)
+                        setToken(window.localStorage.getItem("token"))
+                        setPosts(data.posts);
+                      })
+                  }})
                 .catch((error) => {
                     console.error("Error submitting post:", error);
                 });
@@ -68,14 +55,14 @@ const Comment = ({ token, setToken, post}) => {
     }
     
     return (
-        <div className="comment-container">
-            {commentList}
+        <div className={styles.commentsArea}>
             <input
+                className={styles.inputBox}
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
                 onChange={(event) => setComment(event.target.value)}></input>
-            <button onClick={handleAddComment}>Add Comment</button>
+            <button className={styles.commentSubmit} onClick={handleAddComment}>Add Comment</button>
         </div>
     );
     }

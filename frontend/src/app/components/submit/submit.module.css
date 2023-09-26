@@ -1,4 +1,4 @@
-.main-container {
+.mainContainer {
   height: 100%;
   width: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.input-box {
+.inputBox {
   padding: 10px;
   width: 400px;
   border: 1px solid #ccc;
@@ -16,18 +16,18 @@
   background-color: #f5acf5;
 }
 
-.submit-post-container {
+.submitPostContainer {
   display: flex;
   flex-direction: row;
 }
 
-#feedSubmit {
+.feedSubmit {
   background-color: #f5acf5;
     color: white;
     cursor: pointer;
     font-weight: bold;
-    width: 150px; /* Adjust the width to change the size */
-    height: 54px; /* Adjust the height to change the size */
+    width: 150px;
+    height: 54px;
     padding: 10px 20px; 
     margin-left: 0px;
     position: relative;
