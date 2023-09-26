@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './submit.css'
+import styles from './submit.module.css'
 
-const Submit = ({ token, setToken }) => {
+const Submit = ({ token, setToken, setPosts}) => {
   const [message, setMessage] = useState("");
 
   const submitPost = async (event) => {
@@ -32,6 +32,20 @@ const Submit = ({ token, setToken }) => {
         window.localStorage.setItem("token", data.token);
         setToken(data.token); // Update the token using setToken
       })
+      .then(() => { 
+        if(token) {
+        fetch("/posts", {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+          .then(response => response.json())
+          .then(async data => {
+            window.localStorage.setItem("token", data.token)
+            setToken(window.localStorage.getItem("token"))
+            setPosts(data.posts);
+          })
+      }})
       .catch(error => {
         console.error("Error submitting post:", error);
       });
@@ -47,14 +61,14 @@ const Submit = ({ token, setToken }) => {
   }
 
   return (
-    <div className='main-container'>
-      <form className='submit-post-container' onSubmit={submitPost}>
-        <input className='input-box' type="text"
+    <div className={styles.mainContainer}>
+      <form className={styles.submitPostContainer} onSubmit={submitPost}>
+        <input className={styles.inputBox} type="text"
           placeholder="What's on your mind?" 
           value={message} 
           onChange={handleMessageChange}
         />
-       <input id='feedSubmit' type="submit" value="Submit" />
+       <input id='feedSubmit' className={styles.feedSubmit} type="submit" value="Submit" />
       </form>
     </div>
   );

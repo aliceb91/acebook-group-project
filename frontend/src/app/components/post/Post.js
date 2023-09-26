@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import LikeButton from '../likebutton/likebutton';
 import Comment from '../comment/comment';
+import styles from './Post.module.css'
 
 const Post = ({post, token, setToken, setPosts, comments}) => {
 
@@ -50,20 +51,22 @@ const Post = ({post, token, setToken, setPosts, comments}) => {
   
   };
 
-
-
-
   return(
-    <div className='post-container'>
-      <article data-cy="post" key={ post._id }>{ post.message } <p>{ post.postTimeAndDate }</p></article>
-      <button><span onClick={handleDeletePost}> Delete</span></button>
-      <LikeButton post={post} token={token} setToken={setToken}/>
-      <div>
-        {comments.map(
-          (comment) => <div>{comment}</div>
-        )}
+    <div className={styles.postContainer}>
+      <div>{post.message}</div>
+      <div className={styles.controlArea}>
+        <div>{post.postTimeAndDate}</div>
+        <div className={styles.buttons}>
+          <LikeButton post={post} token={token} setToken={setToken}/>
+          <button className={styles.deleteSubmit}><span onClick={handleDeletePost}> Delete</span></button>
+        </div>
       </div>
-      <Comment post={post} token={token} setToken={setToken} setPosts={setPosts}/>
+      <div>
+        <Comment post={post} token={token} setToken={setToken} setPosts={setPosts}/>
+          {comments.map(
+            (comment) => <div className={styles.commentBody}>{comment}</div>
+          )}
+      </div>
     </div>
   )
 }

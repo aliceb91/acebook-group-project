@@ -43,9 +43,9 @@ const LogInForm = ({ navigate, email, setEmail }) => {
         <div className={styles.formArea}>
           <h2>Login:</h2>
           <form className={styles.loginForm} onSubmit={handleSubmit}>
-            <input placeholder='Email' className={styles.email} type='text' value={ email } onChange={handleEmailChange} />
-            <input placeholder='Password' className={styles.email} type='password' value={ password } onChange={handlePasswordChange} />
-            <input role='submit-button' className={styles.submit} type="submit" value="Submit" />
+            <input placeholder='Email' id='email' className={styles.email} type='text' value={ email } onChange={handleEmailChange} />
+            <input placeholder='Password' id='password' className={styles.email} type='password' value={ password } onChange={handlePasswordChange} />
+            <input role='submit-button' id='submit' className={styles.submit} type="submit" value="Submit" />
           </form>
           <p className={styles.signup}>Don't have an account? <a href='/signup' className={styles.signupLink}>Sign up</a></p>
           <p className={styles.forgottenPassword}>Forgotten password? <a href='/reset' className={styles.forgottenPasswordLink}>Reset Password</a></p>

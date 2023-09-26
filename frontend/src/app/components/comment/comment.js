@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from './comment.module.css'
 
 const Comment = ({ token, setToken, post, setPosts}) => {
 
@@ -54,13 +55,14 @@ const Comment = ({ token, setToken, post, setPosts}) => {
     }
     
     return (
-        <div className="comment-container">
+        <div className={styles.commentsArea}>
             <input
+                className={styles.inputBox}
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
                 onChange={(event) => setComment(event.target.value)}></input>
-            <button onClick={handleAddComment}>Add Comment</button>
+            <button className={styles.commentSubmit} onClick={handleAddComment}>Add Comment</button>
         </div>
     );
     }
