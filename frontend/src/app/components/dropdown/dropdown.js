@@ -20,14 +20,14 @@ const Dropdown = ({ props }) => {
     }
 
     return (
-        <div className={styles.dropdown}> 
+        <div id='dropdown' className={styles.dropdown}> 
             <CSSTransition
                 in={activeMenu === 'main'} 
                 unmountOnExit
                 timeout={500}
                 classNames={styles.menuPrimary}
             >
-                <div className={styles.menu}>
+                <div id='dropdown-menu' className={styles.menu}>
 
                     <DropdownItem leftIcon='🏠' rightIcon='Home' ></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Settings' goToMenu="test"></DropdownItem>
@@ -40,7 +40,7 @@ const Dropdown = ({ props }) => {
                 timeout={500}
                 classNames={styles.menuSecondary}
             >
-                <div className={styles.menu}>
+                <div id='dropdown-menu2' className={styles.menu}>
 
                     <DropdownItem rightIcon='Back' goToMenu='main'></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Stuff'></DropdownItem>

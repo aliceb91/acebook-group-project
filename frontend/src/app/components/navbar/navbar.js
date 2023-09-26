@@ -8,7 +8,7 @@ import NavbarItem from '../navbar/navbarItem.js';
 
 const Navbar = (props) => {
     return (
-        <nav className={styles.navbar}> 
+        <nav id='navbar' className={styles.navbar}> 
         <div className={styles.pageLinks}>
             <ul className={styles.listItem}>
                 <Link to="/home"><img className={styles.logo} src={require('../../../images/gamebook.png')} alt='logo' /></Link>

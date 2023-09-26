@@ -4,7 +4,7 @@ const dropdownElement = (props) => {
     return (
         <div>
 
-            <li className="dropdown-item">
+            <li id='dropdown-item' className="dropdown-item">
                 <img src={props.img} alt='icon'></img>
                 <a href>{props.text}</a>
             </li>
