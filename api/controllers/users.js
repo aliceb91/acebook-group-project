@@ -68,8 +68,14 @@ GetFriends: async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+    const friendNameListPromises = user.friends.map(async friendemail => {
+      const friend = await User.findOne({ email: friendemail }).exec();
+      return friend.firstName + " " + friend.lastName;
+    })
 
-    res.status(200).json({ friends: user.friends });
+    const friendNameList = await Promise.all(friendNameListPromises);
+    
+    res.status(200).json({ friends: friendNameList, token: token });
   } catch (error) {
     console.error('Error fetching friends:', error);
     res.status(500).json({ message: 'Internal server error' });
