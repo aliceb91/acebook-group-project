@@ -52,13 +52,13 @@ const Post = ({post, token, setToken, setPosts, comments}) => {
   };
 
   return(
-    <div className={styles.postContainer}>
+    <div id='post-container' className={styles.postContainer}>
       <div>{post.message}</div>
-      <div className={styles.controlArea}>
+      <div id='control-area' className={styles.controlArea}>
         <div>{post.postTimeAndDate}</div>
-        <div className={styles.buttons}>
+        <div id='post-buttons' className={styles.buttons}>
           <LikeButton post={post} token={token} setToken={setToken}/>
-          <button className={styles.deleteSubmit}><span onClick={handleDeletePost}> Delete</span></button>
+          <button id='delete-submit' className={styles.deleteSubmit}><span onClick={handleDeletePost}> Delete</span></button>
         </div>
       </div>
       <div>

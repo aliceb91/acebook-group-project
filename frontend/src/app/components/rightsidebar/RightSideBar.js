@@ -4,7 +4,7 @@ import SteamGamesList from '../steamgameslist/SteamGamesList'
 
 const RightSideBar = () => {
     return (
-        <div className={styles.rightSidebar}>
+        <div id='right-sidebar' className={styles.rightSidebar}>
             <SteamGamesList />
             <p></p>
         </div>

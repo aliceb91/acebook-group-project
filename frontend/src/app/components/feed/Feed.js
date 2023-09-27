@@ -22,7 +22,7 @@ const Feed = ({ navigate, logout, token , setToken, posts, setPosts}) => {
   }, [])
 
     return(
-      <div className={styles.wholeFeed}>
+      <div id='whole-feed' className={styles.wholeFeed}>
         <h2>Feed:</h2>
         <div role="feed">
             {posts.map(

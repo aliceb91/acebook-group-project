@@ -21,10 +21,10 @@ const Home = ({ navigate }) => {
     return(
       <>
         <Navbar logout={logout}/>
-        <div className={styles.homepage}>
+        <div id='homepagae' className={styles.homepage}>
           <h1>GameBook</h1>
           <Submit setPosts={setPosts} token={token} setToken={setToken}/>
-          <div className={styles.content}>
+          <div id='homepage-content' className={styles.content}>
             <Friends />
             <Feed posts={posts} setPosts={setPosts} logout={logout} token={token} setToken={setToken}/>
             {<RightSidebar />}

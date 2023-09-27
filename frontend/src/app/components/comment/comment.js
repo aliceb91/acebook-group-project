@@ -55,14 +55,14 @@ const Comment = ({ token, setToken, post, setPosts}) => {
     }
     
     return (
-        <div className={styles.commentsArea}>
+        <div id='comments-area' className={styles.commentsArea}>
             <input
                 className={styles.inputBox}
                 type="text"
                 placeholder="Add a comment"
                 value={comment}
                 onChange={(event) => setComment(event.target.value)}></input>
-            <button className={styles.commentSubmit} onClick={handleAddComment}>Add Comment</button>
+            <button id='comment-submit' className={styles.commentSubmit} onClick={handleAddComment}>Add Comment</button>
         </div>
     );
     }

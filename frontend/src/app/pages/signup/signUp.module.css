@@ -46,9 +46,10 @@
   color: white;
   cursor: pointer;
   font-weight: bold;
-  width: 150px; /* Adjust the width to change the size */
-  height: 40px; /* Adjust the height to change the size */
+  width: 150px;
+  height: 40px;
   padding: 10px 20px; 
+  margin-bottom: 8px;
 }
 
 .submit:hover {
@@ -60,16 +61,11 @@
   color: white;
 }
 
-.loginButton {
-  background-color: #f5acf5;
-  color: white;
+.loginLink {
+  color: #f6bdf6;
   cursor: pointer;
-  font-weight: bold;
-  width: 150px; /* Adjust the width to change the size */
-  height: 40px; /* Adjust the height to change the size */
-  padding: 10px 20px; 
 }
 
-.loginButton:hover {
-  background-color: #f847de;
+.loginLink:hover {
+  color: white;
 }
