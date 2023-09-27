@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import Navbar from "../../components/navbar/navbar";
 import Feed from "../../components/feed/Feed";
 import RightSidebar from "../../components/rightsidebar/RightSideBar";
-import SteamGamesList from "../../components/steamgameslist/SteamGamesList";
+import SteamNewsList from "../../components/steamnewslist/SteamNewsList";
 import Submit from "../../components/submit/submit";
 import styles from "./home.module.css"
 import Friends from "../../components/friends/friends";

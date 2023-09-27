@@ -1,5 +1,5 @@
 // SteamGamesList.js
-import styles from './steamgameslist.module.css';
+import styles from './steamnewslist.module.css';
 import React, { useState, useEffect } from 'react';
 
 
@@ -8,7 +8,7 @@ function SteamNewsList() {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        const fetchGames = async () => {
+        const fetchNews = async () => {
             try {
                 const response = await fetch('http://localhost:8080/api/steam-news'); 
                 if (!response.ok) {
@@ -28,7 +28,7 @@ function SteamNewsList() {
             }
         };
 
-        fetchGames();
+        fetchNews();
     }, []);
     
 

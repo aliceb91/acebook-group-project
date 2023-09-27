@@ -11,6 +11,7 @@ const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
 const usersRouter = require("./routes/users");
 const steamRouter = require("./routes/steam");
+const storeRouter = require("./routes/storeRoute")
 
 const app = express();
 app.use(cors());
@@ -47,6 +48,7 @@ app.use("/posts", tokenChecker, postsRouter);
 app.use("/tokens", authenticationRouter);
 app.use("/users", usersRouter);
 app.use("/api/steam-news", steamRouter);
+app.use("/api/steam-games", storeRouter );
 
 
 
