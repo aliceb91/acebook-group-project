@@ -7,6 +7,7 @@ import SteamGamesList from "../../components/steamgameslist/SteamGamesList";
 import Submit from "../../components/submit/submit";
 import "./home.css"
 import Friends from "../../components/friends/friends";
+import AddFriend from "../../components/addfriend/addfriend";
 
 const Home = ({ navigate }) => {
   
@@ -43,9 +44,10 @@ const Home = ({ navigate }) => {
           <h1>GameBook</h1>
           <Submit token={token} setToken={setToken}/>
           <div id="content">
-            <Friends />
+            <Friends token={token} setToken={setToken}/>
             <Feed logout={logout} token={token} setToken={setToken}/>
             {<RightSidebar />}
+            
           </div>
         </div>
       </>

@@ -1,4 +1,4 @@
-// SteamGamesList.js
+
 
 import React, { useState, useEffect } from 'react';
 
@@ -8,7 +8,7 @@ function SteamNewsList() {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        const fetchGames = async () => {
+        const fetchNews = async () => {
             try {
                 const response = await fetch('http://localhost:8080/api/steam-news'); 
                 if (!response.ok) {
@@ -28,7 +28,7 @@ function SteamNewsList() {
             }
         };
 
-        fetchGames();
+        fetchNews();
     }, []);
     
 
@@ -39,7 +39,7 @@ function SteamNewsList() {
 
     return (
         <div className="steam-api">
-            <h2>News List</h2>
+            <h2>Steam News</h2>
             {news.map(article => (
                 <>
                 <h3 key={article.title}>{article.title}</h3>

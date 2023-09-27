@@ -1,11 +1,11 @@
 import React from 'react';
 import './rightsidebar.css';
-import SteamGamesList from '../steamgameslist/SteamGamesList'
+import SteamNewsList from '../steamgameslist/SteamGamesList'
 
 const RightSideBar = () => {
     return (
         <div className="right-sidebar">
-            <SteamGamesList />
+            <SteamNewsList />
             <p></p>
         </div>
     );

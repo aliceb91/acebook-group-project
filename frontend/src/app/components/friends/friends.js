@@ -1,9 +1,12 @@
 import React from 'react';
 import './friends.css'
+import AddFriend from '../addfriend/addfriend';
 
-const Friends = () => {
+const Friends = ({token, setToken}) => {
   return (
-    <div id="friends"></div>
+    <div id="friends">
+      <AddFriend token={token} setToken={setToken}/>
+    </div>
   )
 }
 
