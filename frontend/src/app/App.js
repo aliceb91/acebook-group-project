@@ -13,22 +13,22 @@ import ResetPassword from './pages/resetpassword/resetpassword';
 import ResetConfirmation from './pages/resetconfirmation/resetconfirmation';
 import ResetFailed from './pages/resetfailed/resetfailed';
 import NoEmail from './pages/noemail/noemail';
+import Store from './pages/store/store';
 
 
 const App = () => {
 
-  const [email, setEmail] = useState("");
-
     return (
         <Routes>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } email={email} setEmail={setEmail}/>}/>
+          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } />}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
-          <Route path='/profile' element={<Profile navigate={ useNavigate() } email={email}/>}/>
+          <Route path='/profile' element={<Profile navigate={ useNavigate() }/>}/>
           <Route path='/home' element={<Home navigate={ useNavigate() }/>}/>
           <Route path='/reset' element={<ResetPassword navigate={ useNavigate() } />}/>
           <Route path='/resetconfirmation' element={<ResetConfirmation navigate={ useNavigate() } />}/>
           <Route path='/resetfailed' element={<ResetFailed navigate={ useNavigate() } />}/>
           <Route path='/noemail' element={<NoEmail navigate={ useNavigate() } />}/>
+          <Route path='/store'element={<Store navigate={useNavigate() }/> }/>
         </Routes>
     );
 }

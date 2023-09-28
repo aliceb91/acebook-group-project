@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import './friends.css'
+import styles from './friends.module.css';
 import AddFriend from '../addfriend/addfriend';
 import TestFriendList from '../testfriendlist/TestFriendList';
 
@@ -38,7 +38,7 @@ const Friends = ({ token, setToken }) => {
     }, [token, fetchFriendsList]);
 
     return (
-        <div id="friends">
+        <div id="friends" className={styles.friends}>
             <AddFriend token={token} setToken={setToken} onFriendAdded={fetchFriendsList} />
             <TestFriendList friends={friends} />
         </div>

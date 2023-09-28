@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from './likebutton.module.css'
 
 const LikeButton = ({ post, token, setToken }) => {
     const [likes, setLikes] = useState(post.likes);
@@ -64,8 +65,8 @@ const LikeButton = ({ post, token, setToken }) => {
     }
 
     return (
-        <div className="like-container">
-            <button onClick={handleLike}>
+        <div id='like-container' className={"like-container"}>
+            <button id='like-button' className={styles.likeButton} onClick={handleLike}>
                 {liked ? "Unlike" : "Like"} ({likes})
             </button>
         </div>

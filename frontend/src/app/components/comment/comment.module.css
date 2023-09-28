@@ -1,0 +1,25 @@
+.commentsArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.inputBox {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  border-color: #f5acf5;
+  height: 30px;
+  background-color: #f5acf5;
+}
+
+.commentSubmit {
+  background-color: #f5acf5;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  margin-left: 16px;
+}

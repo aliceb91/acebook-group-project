@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../post/Post'
+import styles from './Feed.module.css'
 
 
-const Feed = ({ navigate, logout, token , setToken}) => {
-
-  const [posts, setPosts] = useState([]);
+const Feed = ({ navigate, logout, token , setToken, posts, setPosts}) => {
   
   useEffect(() => {
     if(token) {
-      fetch("/posts", {
+      fetch("/posts?creator=all", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -20,14 +19,14 @@ const Feed = ({ navigate, logout, token , setToken}) => {
           setPosts(data.posts);
         })
     }
-  }, [])
+  }, [setPosts, setToken, token])
 
     return(
-      <div id="wholeFeed">
-        <h2>Posts</h2>
-        <div id='feed' role="feed">
+      <div id='whole-feed' className={styles.wholeFeed}>
+        <h2>Feed:</h2>
+        <div role="feed">
             {posts.map(
-              (post) => ( <Post token={token} setPosts = {setPosts} setToken={setToken} post={ post } key={ post._id } /> )
+              (post) => ( <Post token={token} setPosts = {setPosts} setToken={setToken} post={ post } key={ post._id } comments={post.comments} feedVar={"all"}/> )
             )}
         </div>
       </div>

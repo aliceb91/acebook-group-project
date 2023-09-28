@@ -1,10 +1,9 @@
-import React from 'react';
-import './rightsidebar.css';
-import SteamNewsList from '../steamgameslist/SteamGamesList'
+import styles from './rightsidebar.module.css';
+import SteamNewsList from '../steamnewslist/SteamNewsList';
 
 const RightSideBar = () => {
     return (
-        <div className="right-sidebar">
+        <div id='right-sidebar' className={styles.rightSidebar}>
             <SteamNewsList />
             <p></p>
         </div>

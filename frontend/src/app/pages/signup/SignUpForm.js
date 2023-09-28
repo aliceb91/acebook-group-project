@@ -68,27 +68,25 @@ const SignUpForm = ({ navigate }) => {
 
 
   return (
-    <div className={styles.fullPage}>
+    <div id='signup-front-page' className={styles.fullPage}>
       <div>
-        <img className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
+        <img id='signup-front-logo' className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
       </div>
-      <div className={styles.signupArea}>
+      <div id='signup-form-area' className={styles.signupArea}>
         <h2>Create New Account:</h2>
-        <form className={styles.signupForm} onSubmit={handleSubmit}>
+        <form id='signup-form' className={styles.signupForm} onSubmit={handleSubmit}>
           {/* Email input */}
-          <input placeholder="Email" className={styles.email} type='text' value={email} onChange={handleEmailChange} />
+          <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange} />
           {/* Password input */}
-          <input placeholder="Password" className={styles.password} type='password' value={password} onChange={handlePasswordChange} />
+          <input placeholder="Password" id='password' className={styles.password} type='password' value={password} onChange={handlePasswordChange} />
           
-          <input placeholder="Username" className={styles.username} type='username' value={username} onChange={handleUsernameChange} />
-          <input placeholder="First name" className={styles.firstName} type='first-name' value={firstName} onChange={handleFirstNameChange} />
-          <input placeholder="Last name" className={styles.lastName} type='last-name' value={lastName} onChange={handleLastNameChange} />
+          <input placeholder="Username" id='username' className={styles.username} type='username' value={username} onChange={handleUsernameChange} />
+          <input placeholder="First name" id='first-name' className={styles.firstName} type='first-name' value={firstName} onChange={handleFirstNameChange} />
+          <input placeholder="Last name" id='last-name' className={styles.lastName} type='last-name' value={lastName} onChange={handleLastNameChange} />
           {/* Submit button */}
-          <input className={styles.submit} type="submit" value="Submit" />
+          <input className={styles.submit} id='submit' type="submit" value="Submit" />
         </form>
-        <div className={styles.login}>Already have an account?</div>
-        <button className={styles.loginButton} href='/login'>Login</button>
-        {/* //<Link to="/login"> Login </Link> */}
+        <div id='signup-login' className={styles.login}>Already have an account? <a id='signup-login-link' className={styles.loginLink} href='/login'>Login</a></div>
       </div>
     </div>
   );

@@ -1,24 +1,14 @@
-nav {
-    --bg: rgb(228, 186, 217);
-    --bg-accent: #525357;
-    --text-colour: white;
-    --nav-size: 60px;
-    --border-radius: 8px;
-    --border: 1px solid #525357;
-    --speed: 500ms;
-  }
-
-ul {
+.listItem {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-a {
+    color: white;
     text-decoration: none;
-    color: var(--text--color);
 }
 
+.listItem:visited {
+    color: white;
+}
 
 .navbar {
     height: 48px;
@@ -26,11 +16,16 @@ a {
     background-color: var(--bg);
     padding: 0 1rem;
     border-bottom: var(--border);
-    
+    --bg: #f5acf5;
+    --bg-accent: #525357;
+    --text-colour: white;
+    --nav-size: 60px;
+    --border-radius: 8px;
+    --border: 1px solid #525357;
+    --speed: 500ms;
 }
 
-.navbar-nav {
-
+.navbarNav {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -39,14 +34,14 @@ a {
     max-width: 100%;
 }
 
-.nav-item {
+.navItem {
     width: calc(var(--nav--size) * 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.icon-button {
+.iconButton {
     --button--size: calc(var(--nav--size) * 0.6);
     width: var(--button--size);
     height:var(--button--size);
@@ -58,29 +53,32 @@ a {
     align-items: center;
     justify-content: center;
     transition: filter 300ms;
+    text-decoration: none;
+    color: var(--text--color);
 }
 
-.icon-button:hover {
+.iconButton:hover {
     filter: brightness(1.5);
 }
 
-.icon-button svg {
+.iconButton svg {
     fill: white;
     height: 25px;
     width: 25px;
 }
-.page-links {
+.pageLinks {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    --text-color: white;
 }
 
-.page-links-single:hover {
+
+.listItem:hover {
     color: gray;
 }
 
-#logo {
+.logo {
     width: 48px;
 }

@@ -1,15 +1,18 @@
 const Post = require("../models/post");
 const TokenGenerator = require("../lib/token_generator");
+const ObjectID = require('mongodb').ObjectID;
 
 const PostsController = {
-  Index: (req, res) => {
-    Post.find((err, posts) => {
-      if (err) {
-        throw err;
-      }
-      const token = TokenGenerator.jsonwebtoken(req.user_id)
+  Index: async (req, res) => {
+    if (req.query.creator !== "all") {
+      const posts = await Post.find({creator: req.query.creator})
+      const token = await TokenGenerator.jsonwebtoken(req.user_id)
       res.status(200).json({ posts: posts, token: token });
-    });
+    } else {
+      const posts = await Post.find()
+      const token = await TokenGenerator.jsonwebtoken(req.user_id)
+      res.status(200).json({ posts: posts, token: token });
+      }
   },
   Create: (req, res) => {
     const post = new Post(req.body);
@@ -17,7 +20,6 @@ const PostsController = {
       if (err) {
         throw err;
       }
-
       const token = TokenGenerator.jsonwebtoken(req.user_id)
       res.status(201).json({ message: 'OK', token: token });
     });
@@ -50,7 +52,7 @@ const PostsController = {
     });
   },
   Comment: (req, res) => {
-    Post.findByIdAndUpdate(req.params.id, { $push: {comments: req.body.comment} }, (err, post) => {
+    Post.findByIdAndUpdate(req.params.id, { $push: {comments: {id: new ObjectID(), creator: req.body.creator, comment: req.body.comment, commentTimeAndDate: req.body.commentTimeAndDate}} }, (err, post) => {
       if (err) {
         throw err;
       }
@@ -66,6 +68,17 @@ const PostsController = {
       const token = TokenGenerator.jsonwebtoken(req.user_id)
       res.status(201).json({ "post.comments": post.comments, token: token });
     }); 
+  },
+  RemoveComment: (req, res) => {
+    console.log(req.body)
+    console.log(req.body.comments)
+    Post.findByIdAndUpdate(req.params.id, {comments: req.body.comments}, (err, post) => {
+      if (err) {
+        throw err;
+      }
+      const token = TokenGenerator.jsonwebtoken(req.user_id)
+      res.status(200).json({ message: 'OK', token: token });
+    })
   }
 }
 
