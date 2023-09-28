@@ -41,10 +41,10 @@ CreateFriend: async (req, res) => {
     const token = TokenGenerator.jsonwebtoken(req.user_id);
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found', token: token });
+      return res.status(404).json({ message: 'User not found'});
     }
     if (user.friends.includes(friendEmail)) {
-      return res.status(400).json({ message: 'Friend already added' , token: token});
+      return res.status(400).json({ message: 'Friend already added'});
     }
     user.friends.push(friendEmail);
     await user.save();
@@ -52,7 +52,7 @@ CreateFriend: async (req, res) => {
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Internal Server Error' , token: token});
+    res.status(500).json({ message: 'Internal Server Error'});
   
 }},
 GetFriends: async (req, res) => {
@@ -64,7 +64,7 @@ GetFriends: async (req, res) => {
     const token = TokenGenerator.jsonwebtoken(userId);
 
     const user = await User.findById(userId).exec();;
-    
+    console.log(user)
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
