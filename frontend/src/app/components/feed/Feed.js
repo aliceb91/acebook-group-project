@@ -19,7 +19,7 @@ const Feed = ({ navigate, logout, token , setToken, posts, setPosts}) => {
           setPosts(data.posts);
         })
     }
-  }, [])
+  }, [setPosts, setToken, token])
 
     return(
       <div id='whole-feed' className={styles.wholeFeed}>
