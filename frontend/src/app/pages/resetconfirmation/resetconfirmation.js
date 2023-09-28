@@ -1,14 +1,13 @@
-
-
+import styles from './resetconfirmation.module.css';
 
 const ResetConfirmation = () => {
 
     return (
-        <>
-            <h1>Reset Successful</h1>
-            <a href = '/login' id='link'>Click Here To Log In</a>
+        <div className={styles.resetContainer}>
+            <h1 className={styles.resetText}>Reset Successful</h1>
+            <div className={styles.login} >Click here to <a className={styles.loginLink} href = '/login' id='link'>Log In</a></div>
         
-        </>
+        </div>
     )
 
 }

@@ -1,0 +1,27 @@
+.resetContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.resetText {
+  font-size: 48px;
+}
+
+.login {
+  font-size: 20px;
+  color: white;
+}
+
+.loginLink {
+  color: #f6bdf6;
+  cursor: pointer;
+}
+
+.loginLink:hover {
+  color: white;
+}

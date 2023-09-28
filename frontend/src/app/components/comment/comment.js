@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './comment.module.css'
 
-const Comment = ({ token, setToken, post, setPosts}) => {
+const Comment = ({ token, setToken, post, setPosts, feedVar}) => {
 
     const [comments, setComments] = useState([]);
     const [comment, setComment] = useState("");
@@ -17,6 +17,7 @@ const Comment = ({ token, setToken, post, setPosts}) => {
                     Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify({
+                    creator: window.sessionStorage.getItem('currentUser'),
                     comment: comment,
                 }),
             })
@@ -35,7 +36,7 @@ const Comment = ({ token, setToken, post, setPosts}) => {
                 })
                 .then(() => { 
                     if(token) {
-                    fetch("/posts", {
+                    fetch(`/posts?creator=${feedVar}`, {
                       headers: {
                         'Authorization': `Bearer ${token}`
                       }
