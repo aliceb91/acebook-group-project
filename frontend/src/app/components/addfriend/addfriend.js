@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AddFriend({token, setToken}) {
+function AddFriend({token, setToken, onFriendAdded }) {
     const [friendEmail, setFriendEmail] = useState('');
     function addFriendByEmail() {
         fetch(`/users/addfriend`, {
@@ -19,6 +19,7 @@ function AddFriend({token, setToken}) {
             setFriendEmail('');
             window.localStorage.setItem('token', data.token);
             setToken(data.token);
+            onFriendAdded();
         })
         .catch(error => console.error('Error adding friend:', error));
     }
