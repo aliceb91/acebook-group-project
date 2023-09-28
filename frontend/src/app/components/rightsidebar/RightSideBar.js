@@ -4,8 +4,8 @@ import SteamNewsList from '../steamnewslist/SteamNewsList';
 
 const RightSideBar = () => {
     return (
-        <div className={styles.rightSidebar}>
-            <SteamNewsList />
+        <div id='right-sidebar' className={styles.rightSidebar}>
+            <SteamGamesList />
             <p></p>
         </div>
     );

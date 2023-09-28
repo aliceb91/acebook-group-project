@@ -18,13 +18,11 @@ import Store from './pages/store/store';
 
 const App = () => {
 
-  const [email, setEmail] = useState("");
-
     return (
         <Routes>
-          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } email={email} setEmail={setEmail}/>}/>
+          <Route path='/login'  element={<LoginForm  navigate={ useNavigate() } />}/>
           <Route path='/signup' element={<SignUpForm navigate={ useNavigate() }/>}/>
-          <Route path='/profile' element={<Profile navigate={ useNavigate() } email={email}/>}/>
+          <Route path='/profile' element={<Profile navigate={ useNavigate() }/>}/>
           <Route path='/home' element={<Home navigate={ useNavigate() }/>}/>
           <Route path='/reset' element={<ResetPassword navigate={ useNavigate() } />}/>
           <Route path='/resetconfirmation' element={<ResetConfirmation navigate={ useNavigate() } />}/>

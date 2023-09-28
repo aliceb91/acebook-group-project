@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
+  creator: String,
   message: String,
   postTimeAndDate: String,
   likes: {

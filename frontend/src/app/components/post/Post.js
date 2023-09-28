@@ -3,7 +3,7 @@ import LikeButton from '../likebutton/likebutton';
 import Comment from '../comment/comment';
 import styles from './Post.module.css'
 
-const Post = ({post, token, setToken, setPosts, comments}) => {
+const Post = ({post, token, setToken, setPosts, comments, feedVar}) => {
 
   const handleDeletePost = async (event) => {
     event.preventDefault();
@@ -52,19 +52,20 @@ const Post = ({post, token, setToken, setPosts, comments}) => {
   };
 
   return(
-    <div className={styles.postContainer}>
+    <div id='post-container' className={styles.postContainer}>
+      <div>{post.creator}</div>
       <div>{post.message}</div>
-      <div className={styles.controlArea}>
+      <div id='control-area' className={styles.controlArea}>
         <div>{post.postTimeAndDate}</div>
-        <div className={styles.buttons}>
+        <div id='post-buttons' className={styles.buttons}>
           <LikeButton post={post} token={token} setToken={setToken}/>
-          <button className={styles.deleteSubmit}><span onClick={handleDeletePost}> Delete</span></button>
+          <button id='delete-submit' className={styles.deleteSubmit}><span onClick={handleDeletePost}> Delete</span></button>
         </div>
       </div>
       <div>
-        <Comment post={post} token={token} setToken={setToken} setPosts={setPosts}/>
+        <Comment post={post} token={token} setToken={setToken} setPosts={setPosts} feedVar={feedVar}/>
           {comments.map(
-            (comment) => <div className={styles.commentBody}>{comment}</div>
+            (comment) => <div className={styles.commentBody}>{comment.creator}<br/>{comment.comment}</div>
           )}
       </div>
     </div>

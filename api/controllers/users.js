@@ -25,7 +25,21 @@ const UsersController = {
     } catch (error) {
         res.status(400).json();
     }
-}
+  },
+  FindCurrentUser: async (req, res) => {
+    try {
+      console.log(req.query.email)
+      const currentUser = await User.findOne({ email: req.query.email }).exec();
+      if (!currentUser) {
+        return res.status(404).json();
+      } else {
+        return res.status(200).json(currentUser);
+      }
+    } catch (error) {
+      console.error(error)
+      res.status(400).json();
+    }
+  }
 
 };
 

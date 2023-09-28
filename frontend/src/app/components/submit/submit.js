@@ -15,6 +15,7 @@ const Submit = ({ token, setToken, setPosts}) => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ 
+          creator: sessionStorage.getItem("currentUser"),
           message: message, 
           postTimeAndDate: new Date().toLocaleString()
         })
@@ -61,9 +62,9 @@ const Submit = ({ token, setToken, setPosts}) => {
   }
 
   return (
-    <div className={styles.mainContainer}>
-      <form className={styles.submitPostContainer} onSubmit={submitPost}>
-        <input className={styles.inputBox} type="text"
+    <div id='submit-main-container' className={styles.mainContainer}>
+      <form id='submit-post-container' className={styles.submitPostContainer} onSubmit={submitPost}>
+        <input id='post-input-box' className={styles.inputBox} type="text"
           placeholder="What's on your mind?" 
           value={message} 
           onChange={handleMessageChange}

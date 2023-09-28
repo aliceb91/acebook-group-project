@@ -68,13 +68,13 @@ const SignUpForm = ({ navigate }) => {
 
 
   return (
-    <div className={styles.fullPage}>
+    <div id='signup-front-page' className={styles.fullPage}>
       <div>
-        <img className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
+        <img id='signup-front-logo' className={styles.frontLogo} src={require('../../../images/updated logo.png')} alt='logo' />
       </div>
-      <div className={styles.signupArea}>
+      <div id='signup-form-area' className={styles.signupArea}>
         <h2>Create New Account:</h2>
-        <form className={styles.signupForm} onSubmit={handleSubmit}>
+        <form id='signup-form' className={styles.signupForm} onSubmit={handleSubmit}>
           {/* Email input */}
           <input placeholder="Email" id='email' className={styles.email} type='text' value={email} onChange={handleEmailChange} />
           {/* Password input */}
@@ -86,9 +86,7 @@ const SignUpForm = ({ navigate }) => {
           {/* Submit button */}
           <input className={styles.submit} id='submit' type="submit" value="Submit" />
         </form>
-        <div className={styles.login}>Already have an account?</div>
-        <button className={styles.loginButton} href='/login'>Login</button>
-        {/* //<Link to="/login"> Login </Link> */}
+        <div id='signup-login' className={styles.login}>Already have an account? <a id='signup-login-link' className={styles.loginLink} href='/login'>Login</a></div>
       </div>
     </div>
   );
