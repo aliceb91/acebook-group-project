@@ -19,6 +19,7 @@ const Comment = ({ token, setToken, post, setPosts, feedVar}) => {
                 body: JSON.stringify({
                     creator: window.sessionStorage.getItem('currentUser'),
                     comment: comment,
+                    commentTimeAndDate: new Date().toLocaleString()
                 }),
             })
                 .then((response) => {
@@ -54,7 +55,7 @@ const Comment = ({ token, setToken, post, setPosts, feedVar}) => {
         }
         setComment("");
     }
-    
+
     return (
         <div id='comments-area' className={styles.commentsArea}>
             <input

@@ -11,7 +11,7 @@ const Profile = ({ sessionUser, navigate }) => {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [posts, setPosts] = useState([])
   const [email, setEmail] = useState(window.sessionStorage.getItem("sessionUser"));
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(window.sessionStorage.getItem("currentUser"));
   const [firstName, setFirstName] =  useState("");
   const [lastName, setLastName] = useState("");
 
@@ -50,7 +50,7 @@ const Profile = ({ sessionUser, navigate }) => {
           })
       })
     }
-  })
+  }, [token, email, username])
 
   if(token) {
     return(

@@ -35,7 +35,7 @@ const Submit = ({ token, setToken, setPosts}) => {
       })
       .then(() => { 
         if(token) {
-        fetch("/posts", {
+        fetch("/posts?creator=all", {
           headers: {
             'Authorization': `Bearer ${token}`
           }

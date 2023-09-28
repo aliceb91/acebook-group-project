@@ -34,7 +34,7 @@ const Dropdown = ({ props, user }) => {
             >
                 <div id='dropdown-menu' className={styles.menu}>
 
-                    <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' ></DropdownItem>
+                    <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' target="/profile" ></DropdownItem>
                     <DropdownItem leftIcon={<MessageIcon />} rightIcon='Messages' ></DropdownItem>
                     <DropdownItem leftIcon={<SettingsIcon />} rightIcon='Settings' goToMenu="test"></DropdownItem>
                     <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout'></DropdownItem>
