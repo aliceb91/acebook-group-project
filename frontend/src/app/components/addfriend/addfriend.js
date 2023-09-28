@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 
-function AddFriend({token, setToken, onFriendAdded }) {
+function AddFriend({token, setToken, setFriends }) {
     const [friendEmail, setFriendEmail] = useState('');
-    function addFriendByEmail() {
+
+    /*function addFriendByEmail() {
+        if (friendEmail === window.sessionStorage.getItem("email")){
+            console.log("You can't add yourself!")
+            return
+        }
         fetch(`/users/addfriend`, {
             method: 'POST',
             headers: {
@@ -10,6 +15,7 @@ function AddFriend({token, setToken, onFriendAdded }) {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
+                email: window.sessionStorage.getItem("email"),
                 friendEmail: friendEmail 
             })
         })
@@ -19,9 +25,56 @@ function AddFriend({token, setToken, onFriendAdded }) {
             setFriendEmail('');
             window.localStorage.setItem('token', data.token);
             setToken(data.token);
-            onFriendAdded();
+        })
+        .then(() => {
+            fetch("users/friends", {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
         })
         .catch(error => console.error('Error adding friend:', error));
+    }*/
+
+    const addFriendByEmail = () => {
+        if (token) {
+            fetch(`/users/addfriend?currentUser=${window.sessionStorage.getItem("currentUser")}`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({friendEmail: friendEmail})
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Friends added successfully!")
+                } else {
+                    console.log("Uh oh!")
+                }
+                return response.json();
+            })
+            .then(() => {
+                if(token) {
+                    fetch(`/users/friends?currentUser=${window.sessionStorage.getItem("currentUser")}`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(async data => {
+                        window.localStorage.setItem("token", data.token)
+                        setToken(window.localStorage.getItem("token"))
+                        setFriends(data.friends)
+                    })
+                }
+            })
+        }
+    }
+
+    const handleEmailChange = (event) => {
+        setFriendEmail(event.target.value)
     }
 
     return (
@@ -29,7 +82,7 @@ function AddFriend({token, setToken, onFriendAdded }) {
             <input 
                 type="text" 
                 value={friendEmail} 
-                onChange={email=> setFriendEmail(email.target.value)} 
+                onChange={handleEmailChange} 
                 placeholder="Enter friend's email"
             />
             <button onClick={addFriendByEmail}>Add Friend</button>

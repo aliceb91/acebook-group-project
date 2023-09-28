@@ -31,7 +31,7 @@ const UsersController = {
     }
   },
   CreateFriend: async (req, res) => {
-    try {
+    /*try {
       const authHeader = req.headers.authorization;
       const userToken = authHeader.split(' ')[1];
       const decodedPayload = jwt.decode(userToken);
@@ -53,8 +53,18 @@ const UsersController = {
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal Server Error'});
-    
-  }},
+
+    }*/
+    const targetUser = await User.findOne({email: req.body.friendEmail}).exec();
+    const currentUser = await User.findOne({username: req.query.currentUser}).exec();
+    if (targetUser === null) {
+      return res.status(404).json({ message: 'User not found' });
+    } else {await User.findOneAndUpdate({username: req.query.currentUser}, { $push: {friends: req.body.friendEmail}}).exec();
+    }
+    const token = await TokenGenerator.jsonwebtoken(req.user_id)
+    res.status(200).json({token: token, message: "Friend added!"})
+
+  },
   FindCurrentUser: async (req, res) => {
     try {
       console.log(req.query.email)
@@ -70,7 +80,7 @@ const UsersController = {
     }
   },
   GetFriends: async (req, res) => {
-    try {
+    /*try {
       const authHeader = req.headers.authorization;
       const userToken = authHeader.split(' ')[1];
       const decodedPayload = jwt.decode(userToken);
@@ -93,7 +103,10 @@ const UsersController = {
     } catch (error) {
       console.error('Error fetching friends:', error);
       res.status(500).json({ message: 'Internal server error' });
-    }
+    }*/
+    const currentUser = await User.findOne({username: req.query.currentUser}).exec();
+    const token = await TokenGenerator.jsonwebtoken(req.user_id)
+    res.status(200).json({token: token, friends: currentUser.friends})
   }};
   
 
