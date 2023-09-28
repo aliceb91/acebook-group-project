@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './rightsidebar.module.css';
 import SteamNewsList from '../steamnewslist/SteamNewsList';
 
