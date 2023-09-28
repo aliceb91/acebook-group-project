@@ -1,10 +1,13 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import DropdownElement from '../dropdownElement/dropdownElement'
+import { ReactComponent as SettingsIcon } from '../../../images/settings.svg';
+import { ReactComponent as LogoutIcon } from '../../../images/logout.svg';
+import { ReactComponent as PersonIcon } from '../../../images/person.svg';
+import { ReactComponent as MessageIcon } from '../../../images/messages.svg';
 import styles from './dropdown.module.css'
 import { CSSTransition } from 'react-transition-group';
 
-const Dropdown = ({ props }) => { 
+
+const Dropdown = ({ props, user }) => { 
 
     const [activeMenu, setActiveMenu] = React.useState('main');
 
@@ -19,6 +22,8 @@ const Dropdown = ({ props }) => {
         );
     }
 
+    console.log('user' + user.profilePic)
+
     return (
         <div id='dropdown' className={styles.dropdown}> 
             <CSSTransition
@@ -29,9 +34,11 @@ const Dropdown = ({ props }) => {
             >
                 <div id='dropdown-menu' className={styles.menu}>
 
-                    <DropdownItem target='/profile' leftIcon='🏠' rightIcon='Profile' ></DropdownItem>
-                    <DropdownItem leftIcon=':)' rightIcon='Settings' goToMenu="test"></DropdownItem>
-                    <DropdownItem leftIcon=':)' rightIcon='Logout'></DropdownItem>
+                    <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' ></DropdownItem>
+                    <DropdownItem leftIcon={<MessageIcon />} rightIcon='Messages' ></DropdownItem>
+                    <DropdownItem leftIcon={<SettingsIcon />} rightIcon='Settings' goToMenu="test"></DropdownItem>
+                    <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout'></DropdownItem>
+
                 </div>
             </CSSTransition>
             <CSSTransition

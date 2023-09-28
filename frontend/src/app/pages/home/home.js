@@ -11,6 +11,7 @@ const Home = ({ navigate }) => {
   
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [posts, setPosts] = useState([]);
+  const [user, setUser] = useState([]);
   
   const logout = () => {
     window.localStorage.removeItem("token")
@@ -20,7 +21,7 @@ const Home = ({ navigate }) => {
   if(token) {
     return(
       <>
-        <Navbar logout={logout}/>
+        <Navbar logout={logout} user = {user}/>
         <div id='homepagae' className={styles.homepage}>
           <h1>GameBook</h1>
           <Submit setPosts={setPosts} token={token} setToken={setToken}/>
