@@ -10,7 +10,7 @@ const Dropdown = ({ props }) => {
 
     const DropdownItem = (props) => {
         return (
-                <a href="#" className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+                <a href={props.target} className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                     <span className={styles.iconButton}>{props.leftIcon}</span>
                     {props.children}
 
@@ -29,7 +29,7 @@ const Dropdown = ({ props }) => {
             >
                 <div id='dropdown-menu' className={styles.menu}>
 
-                    <DropdownItem leftIcon='🏠' rightIcon='Home' ></DropdownItem>
+                    <DropdownItem target='/profile' leftIcon='🏠' rightIcon='Profile' ></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Settings' goToMenu="test"></DropdownItem>
                     <DropdownItem leftIcon=':)' rightIcon='Logout'></DropdownItem>
                 </div>

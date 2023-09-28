@@ -3,7 +3,7 @@ import LikeButton from '../likebutton/likebutton';
 import Comment from '../comment/comment';
 import styles from './Post.module.css'
 
-const Post = ({post, token, setToken, setPosts, comments}) => {
+const Post = ({post, token, setToken, setPosts, comments, feedVar}) => {
 
   const handleDeletePost = async (event) => {
     event.preventDefault();
@@ -53,6 +53,7 @@ const Post = ({post, token, setToken, setPosts, comments}) => {
 
   return(
     <div id='post-container' className={styles.postContainer}>
+      <div>{post.creator}</div>
       <div>{post.message}</div>
       <div id='control-area' className={styles.controlArea}>
         <div>{post.postTimeAndDate}</div>
@@ -62,9 +63,9 @@ const Post = ({post, token, setToken, setPosts, comments}) => {
         </div>
       </div>
       <div>
-        <Comment post={post} token={token} setToken={setToken} setPosts={setPosts}/>
+        <Comment post={post} token={token} setToken={setToken} setPosts={setPosts} feedVar={feedVar}/>
           {comments.map(
-            (comment) => <div className={styles.commentBody}>{comment}</div>
+            (comment) => <div className={styles.commentBody}>{comment.creator}<br/>{comment.comment}</div>
           )}
       </div>
     </div>
