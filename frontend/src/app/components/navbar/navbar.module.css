@@ -74,7 +74,8 @@
     --text-color: white;
 }
 
-.pageLinksSingle:hover {
+
+.listItem:hover {
     color: gray;
 }
 

@@ -31,7 +31,7 @@ const Navbar = (props) => {
             
             <ul className={styles.navbarNav}> 
                 <NavbarItem icon= {<PlusIcon />} >
-                    <Dropdown logout={props.logout}/>
+                    <Dropdown logout={props.logout} user={props.user}/>
                 </NavbarItem>
             </ul>
         </div>

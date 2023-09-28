@@ -42,6 +42,11 @@
   margin-right: 0.5rem;
 }
 
+.iconButton svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
 
 .menuItem .iconButton:hover {
   filter: none;
