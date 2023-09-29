@@ -24,8 +24,9 @@ const seedDB = async () => {
         username: 'JohnDough',
         password: 'password',
         email: 'hero@hungry.com',
-        createdAt: new Date().toLocaleString(),
+        signupTimeAndDate: new Date().toLocaleString(),
         profilePic: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        friends: [],
     },
     {
         firstName: 'Chalet',
@@ -33,8 +34,9 @@ const seedDB = async () => {
         username: 'SourestDough',
         password: 'password',
         email: 'dour@deli.com',
-        createdAt: new Date().toLocaleString(),
+        signupTimeAndDate: new Date().toLocaleString(),
         profilePic: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        friends: [],
     },
     {
         firstName: 'Mortimer',
@@ -42,8 +44,29 @@ const seedDB = async () => {
         username: 'Morty',
         password: 'password',
         email: 'test@acebook.com',
-        createdAt: new Date().toLocaleString(),
+        signupTimeAndDate: new Date().toLocaleString(),
         profilePic: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        friends: [],
+    },
+    {
+        firstName: 'Tess',
+        lastName: 'Test',
+        username: 'Test',
+        password: 'test',
+        email: 'test.test@test.com',
+        signupTimeAndDate: new Date().toLocaleString(),
+        profilePic: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        friends: [],
+    },
+    {
+        firstName: 'Fake',
+        lastName: 'Fake',
+        username: 'Fake',
+        password: 'fake',
+        email: 'fake.fake@fake.com',
+        signupTimeAndDate: new Date().toLocaleString(),
+        profilePic: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+        friends: [],
     }];
 
 
@@ -57,9 +80,10 @@ const seedDB = async () => {
         const username = faker.internet.userName();
         const password = faker.internet.password();
         const email = faker.internet.email();
-        const createdAt = faker.date.past();
+        const signupTimeAndDate = faker.date.past();
         const profilePic = faker.image.avatar();
         const photoCollection = [];
+        const friends = [];
         for (let i = 0; i < 10; i++) {
             photoCollection.push(faker.image.urlPicsumPhotos());
         }
@@ -70,9 +94,10 @@ const seedDB = async () => {
             username,
             password,
             email,
-            createdAt,
+            signupTimeAndDate,
             profilePic,
             photoCollection,
+            friends,
         });
         }
     
