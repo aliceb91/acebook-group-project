@@ -66,7 +66,7 @@ const PostsController = {
       const token = TokenGenerator.jsonwebtoken(req.user_id)
       res.status(201).json({ "post.comments": post.comments, token: token });
     }); 
-  }
+  },
 }
 
 module.exports = PostsController;

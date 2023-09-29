@@ -13,7 +13,7 @@ const Dropdown = ({ props, user }) => {
 
     const DropdownItem = (props) => {
         return (
-                <a href="#" className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+                <a href={props.onClick} className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                     <span className={styles.iconButton}>{props.leftIcon}</span>
                     {props.children}
 
@@ -22,7 +22,10 @@ const Dropdown = ({ props, user }) => {
         );
     }
 
-    console.log('user' + user.profilePic)
+    const logout = () => {
+        window.localStorage.removeItem("token")
+        window.location.href ='/login'
+      }
 
     return (
         <div id='dropdown' className={styles.dropdown}> 
@@ -37,7 +40,7 @@ const Dropdown = ({ props, user }) => {
                     <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' ></DropdownItem>
                     <DropdownItem leftIcon={<MessageIcon />} rightIcon='Messages' ></DropdownItem>
                     <DropdownItem leftIcon={<SettingsIcon />} rightIcon='Settings' goToMenu="test"></DropdownItem>
-                    <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout'></DropdownItem>
+                    <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout' onClick={logout}></DropdownItem>
                 </div>
             </CSSTransition>
             <CSSTransition
