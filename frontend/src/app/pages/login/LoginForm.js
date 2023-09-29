@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./LoginForm.module.css";
 
-const LogInForm = ({ navigate, email, setEmail }) => {
+const LogInForm = ({ navigate, setSessionUser, sessionUser}) => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
@@ -16,13 +17,14 @@ const LogInForm = ({ navigate, email, setEmail }) => {
     })
 
     if(response.status !== 201) {
-      console.log("yay")
       navigate('/login')
     } else {
-      console.log("oop")
       let data = await response.json()
       window.localStorage.setItem("token", data.token)
-      navigate('/home');
+      window.sessionStorage.setItem("sessionUser", email)
+      window.sessionStorage.setItem("currentUser", data.username)
+      console.log(data.username)
+      navigate('/home')
     }
   }
 

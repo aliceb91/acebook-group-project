@@ -7,7 +7,7 @@ const Feed = ({ navigate, logout, token , setToken, posts, setPosts}) => {
   
   useEffect(() => {
     if(token) {
-      fetch("/posts", {
+      fetch("/posts?creator=all", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -19,14 +19,14 @@ const Feed = ({ navigate, logout, token , setToken, posts, setPosts}) => {
           setPosts(data.posts);
         })
     }
-  }, [])
+  }, [setPosts, setToken, token])
 
     return(
       <div id='whole-feed' className={styles.wholeFeed}>
         <h2>Feed:</h2>
         <div role="feed">
             {posts.map(
-              (post) => ( <Post token={token} setPosts = {setPosts} setToken={setToken} post={ post } key={ post._id } comments={post.comments}/> )
+              (post) => ( <Post token={token} setPosts = {setPosts} setToken={setToken} post={ post } key={ post._id } comments={post.comments} feedVar={"all"}/> )
             )}
         </div>
       </div>

@@ -3,5 +3,6 @@
   color: white;
   cursor: pointer;
   font-weight: bold;
-  padding: 2px; 
+  padding: 2px;
+  height: 24px;
 }

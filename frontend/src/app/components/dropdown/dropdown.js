@@ -13,7 +13,7 @@ const Dropdown = ({ props, user }) => {
 
     const DropdownItem = (props) => {
         return (
-                <a href={props.onClick} className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
+                <a href={props.target} className={styles.menuItem} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
                     <span className={styles.iconButton}>{props.leftIcon}</span>
                     {props.children}
 
@@ -37,10 +37,10 @@ const Dropdown = ({ props, user }) => {
             >
                 <div id='dropdown-menu' className={styles.menu}>
 
-                    <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' ></DropdownItem>
+                    <DropdownItem leftIcon={<PersonIcon />} rightIcon='My Profile' target="/profile" ></DropdownItem>
                     <DropdownItem leftIcon={<MessageIcon />} rightIcon='Messages' ></DropdownItem>
                     <DropdownItem leftIcon={<SettingsIcon />} rightIcon='Settings' goToMenu="test"></DropdownItem>
-                    <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout' onClick={logout}></DropdownItem>
+                    <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout'></DropdownItem>
                 </div>
             </CSSTransition>
             <CSSTransition

@@ -15,6 +15,7 @@ const Submit = ({ token, setToken, setPosts}) => {
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({ 
+          creator: sessionStorage.getItem("currentUser"),
           message: message, 
           postTimeAndDate: new Date().toLocaleString()
         })
@@ -34,7 +35,7 @@ const Submit = ({ token, setToken, setPosts}) => {
       })
       .then(() => { 
         if(token) {
-        fetch("/posts", {
+        fetch("/posts?creator=all", {
           headers: {
             'Authorization': `Bearer ${token}`
           }
