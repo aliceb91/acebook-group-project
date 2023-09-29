@@ -14,6 +14,7 @@ import ResetConfirmation from './pages/resetconfirmation/resetconfirmation';
 import ResetFailed from './pages/resetfailed/resetfailed';
 import NoEmail from './pages/noemail/noemail';
 import Store from './pages/store/store';
+import MyGameList from './pages/myLibrary/myLibrary'
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/resetfailed' element={<ResetFailed navigate={ useNavigate() } />}/>
           <Route path='/noemail' element={<NoEmail navigate={ useNavigate() } />}/>
           <Route path='/store'element={<Store navigate={useNavigate() }/> }/>
+          <Route path='/mylibrary' element={<MyGameList navigate={useNavigate() }/> }/>
         </Routes>
     );
 }
