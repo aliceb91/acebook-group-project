@@ -38,13 +38,15 @@ function SteamGamesList(){
     
     }, [] )
     return(
-        <div className="steam-api">
+        <div className={styles.steamApi}>
             <h2>Games List</h2>
+            <div className = {styles.gameArea}>
             {games.map(game => (
                 <>
                 <h3 className={styles.PerfectDice}>{game.name}</h3>
                 </>
             ))}
+            </div>
         </div>
     );
 
