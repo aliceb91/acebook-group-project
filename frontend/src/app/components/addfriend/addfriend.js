@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './addfriend.module.css';
 
 function AddFriend({token, setToken, setFriends }) {
     const [friendEmail, setFriendEmail] = useState('');
@@ -78,14 +79,15 @@ function AddFriend({token, setToken, setFriends }) {
     }
 
     return (
-        <div>
+        <div className={styles.addFriendArea}>
             <input 
+                className={styles.addFriendBar}
                 type="text" 
                 value={friendEmail} 
                 onChange={handleEmailChange} 
                 placeholder="Enter friend's email"
             />
-            <button onClick={addFriendByEmail}>Add Friend</button>
+            <button className= {styles.addFriendButton} onClick={addFriendByEmail}>Add Friend</button>
         </div>
     );
 }

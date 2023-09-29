@@ -5,6 +5,7 @@ import styles from  './Profile.module.css';
 import Friends from '../../components/friends/friends';
 import RightSidebar from '../../components/rightsidebar/RightSideBar';
 import Post from '../../components/post/Post';
+import NavbarPlaceholder from "../../components/navbarPlaceholder/navbarplaceholder";
 
 const Profile = ({ sessionUser, navigate }) => {
 
@@ -14,6 +15,7 @@ const Profile = ({ sessionUser, navigate }) => {
   const [username, setUsername] = useState(window.sessionStorage.getItem("currentUser"));
   const [firstName, setFirstName] =  useState("");
   const [lastName, setLastName] = useState("");
+  const [profilePic, setProfilePic] = useState("");
 
   const logout = () => {
     window.localStorage.removeItem("token")
@@ -32,9 +34,10 @@ const Profile = ({ sessionUser, navigate }) => {
         return response.json()
       })
       .then((data) => {
-        setUsername(data.username);
-        setFirstName(data.firstName);
-        setLastName(data.LastName);
+        setUsername(data.user.username);
+        setFirstName(data.user.firstName);
+        setLastName(data.user.LastName);
+        setProfilePic(data.user.profilePic);
       })
       .then((data) => {
         fetch(`/posts?creator=${username}`, {
@@ -56,16 +59,24 @@ const Profile = ({ sessionUser, navigate }) => {
     return(
       <>
         <Navbar logout={logout} />
+        <NavbarPlaceholder/>
         <div className={styles.profilePage}>
           <h1>Your Profile</h1>
           <div className={styles.profileContent}>
             <Friends />
             <div className={styles.profileInfo}>
-              <h1>Profile Info:</h1>
-              <div>Username: {username}</div>
-              <div>First Name: {firstName}</div>
-              <div>Last Name: {lastName}</div>
-              <div>Email: {email}</div>
+              <div className={styles.infoTop}>
+                <div className={styles.infoLeft}>
+                  <h1>Profile Info:</h1>
+                  <div>Username: {username}</div>
+                  <div>First Name: {firstName}</div>
+                  <div>Last Name: {lastName}</div>
+                  <div>Email: {email}</div>
+                </div>
+                <div className={styles.infoRight}>
+                  <img className={styles.picture} src={profilePic} alt="Profile photographic capture"/>
+                </div>
+              </div>
               <div className={styles.userFeed}>
                 <h1>Your Posts:</h1>
                 <div role="feed">

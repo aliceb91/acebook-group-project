@@ -1,8 +1,11 @@
 html, body {
-  background-color: #303030;
   height: 100%;
   width: 100%;
   display: flex;
+}
+
+html {
+  background-color: #303030;
 }
 
 h1, h2, h3 {

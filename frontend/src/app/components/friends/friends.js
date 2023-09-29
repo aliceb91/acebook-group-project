@@ -60,8 +60,9 @@ const Friends = ({ token, setToken }) => {
     return (
         <div id="friendsArea" className={styles.friendsArea}>
             <AddFriend token={token} setToken={setToken} setFriends={setFriends} />
+            <h3>Friends you follow: </h3>
             {friends.map((friend) => {
-                return <div>{friend}</div>
+                return <div className={styles.friendBlock}>{friend}</div>
             })}
         </div>
     )

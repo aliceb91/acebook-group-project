@@ -9,6 +9,7 @@ import Friends from "../../components/friends/friends";
 import ProfilePic from "../../components/profilePic/profilePic";
 import PhotoAlbum from "../../components/photoAlbum/photoAlbum";
 import AddFriend from "../../components/addfriend/addfriend";
+import NavbarPlaceholder from "../../components/navbarPlaceholder/navbarplaceholder";
 
 const Home = ({ navigate }) => {
   
@@ -41,6 +42,7 @@ const Home = ({ navigate }) => {
     return(
       <>
         <Navbar logout={logout} user = {user}/>
+        <NavbarPlaceholder/>
         <div id='homepagae' className={styles.homepage}>
           <h1>GameBook {user.username}</h1>
           <Submit setPosts={setPosts} token={token} setToken={setToken}/>

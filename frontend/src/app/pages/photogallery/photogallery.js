@@ -1,17 +1,19 @@
 import React, { useEffect, useState} from "react";
 import Navbar from "../../components/navbar/navbar";
 import PhotoAlbum from "../../components/photoAlbum/photoAlbum";
-
+import NavbarPlaceholder from "../../components/navbarPlaceholder/navbarplaceholder";
+import styles from './photogallery.module.css'
 
 const Gallery = ({ navigate }) => {
 
     const [token, setToken] = useState(window.localStorage.getItem("token"));
     const [user, setUser] = useState([]);
     const [photos, setPhotos] = useState([]);
+    const [email, setEmail] = useState(window.sessionStorage.getItem("sessionUser"));
 
   useEffect(() => {
     if(token) {
-      fetch("/users/home", {
+      fetch(`/users?email=${encodeURIComponent(email)}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -35,11 +37,9 @@ const Gallery = ({ navigate }) => {
     return(
         <>
             <Navbar />
-            <h2>Signed in as {user.username}</h2>
-            <h1>Gallery</h1>
+            <NavbarPlaceholder/>
+            <h1 className={styles.galleryTitle}>Gallery</h1>
             <PhotoAlbum user = {user} photos = {photos}/>
-            
-
         </>
     )
 }

@@ -28,3 +28,15 @@
   margin-top: 16px;
   overflow-wrap: break-word;
 }
+
+.picture {
+  height: 150px;
+  width: 150px;
+}
+
+.infoTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

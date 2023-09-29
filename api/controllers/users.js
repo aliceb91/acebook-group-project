@@ -80,7 +80,7 @@ const UsersController = {
     const currentUser = await User.findOne({username: req.query.currentUser}).exec();
     if (targetUser === null) {
       return res.status(404).json({ message: 'User not found' });
-    } else {await User.findOneAndUpdate({username: req.query.currentUser}, { $push: {friends: req.body.friendEmail}}).exec();
+    } else {await User.findOneAndUpdate({username: req.query.currentUser}, { $push: {friends: `${targetUser.firstName} ${targetUser.lastName}`}}).exec();
     }
     const token = await TokenGenerator.jsonwebtoken(req.user_id)
     res.status(200).json({token: token, message: "Friend added!"})
@@ -90,10 +90,11 @@ const UsersController = {
     try {
       console.log(req.query.email)
       const currentUser = await User.findOne({ email: req.query.email }).exec();
+      const token = await TokenGenerator.jsonwebtoken(req.user_id)
       if (!currentUser) {
         return res.status(404).json();
       } else {
-        return res.status(200).json(currentUser);
+        return res.status(200).json({token: token, user: currentUser});
       }
     } catch (error) {
       console.error(error)

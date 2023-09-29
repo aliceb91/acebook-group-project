@@ -1,0 +1,26 @@
+.addFriendBar {
+  padding: 10px;
+  width: 55%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  border-color: #f5acf5;
+  height: 20px;
+  background-color: #f5acf5;
+}
+
+.addFriendButton {
+  background-color: #f5acf5;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  width: 72px;
+  height: 41px;
+  margin-left: 14px;
+}
+
+.addFriendArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4px;
+}
