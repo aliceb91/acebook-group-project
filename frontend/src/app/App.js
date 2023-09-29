@@ -15,6 +15,7 @@ import ResetFailed from './pages/resetfailed/resetfailed';
 import NoEmail from './pages/noemail/noemail';
 import Gallery from './pages/photogallery/photogallery';
 import Store from './pages/store/store';
+import MyGameList from './pages/myLibrary/myLibrary'
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/noemail' element={<NoEmail navigate={ useNavigate() } />}/>
           <Route path='/gallery' element={<Gallery navigate={ useNavigate() }/>}/>
           <Route path='/store'element={<Store navigate={useNavigate() }/> }/>
+          <Route path='/mylibrary' element={<MyGameList navigate={useNavigate() }/> }/>
         </Routes>
     );
 }

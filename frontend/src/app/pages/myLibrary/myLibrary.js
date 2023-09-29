@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "../../components/navbar/navbar";
-import styles from "./store.module.css"
 import SteamGamesList from "../../components/store/SteamGamesList";
 
 
-const Store = ({ navigate }) => {
+const MyGameList = ({ navigate }) => {
 
     const [token, setToken] = useState(window.localStorage.getItem("token"))
 
@@ -19,9 +18,7 @@ const Store = ({ navigate }) => {
         return(
             <>
             <Navbar logout={logout}/>
-            <div>
             <SteamGamesList/>
-            </div>
             <h1>Test</h1>
             </>
         )
@@ -31,4 +28,4 @@ const Store = ({ navigate }) => {
 
 }
 
-export default Store
+export default MyGameList

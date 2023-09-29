@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./steam.module.css";
 
 
 function SteamGamesList(){
@@ -6,7 +7,7 @@ function SteamGamesList(){
     const gamelist = []
 
 
-    useEffect(()=>{
+    useEffect(()=> {
         const fetchGames = async()=>{
             try{
                 const response = await fetch('http://localhost:8080/api/steam-games');
@@ -14,11 +15,15 @@ function SteamGamesList(){
                     throw new Error('Failed to fetch games from server');
                 }
                 const data = await response.json();
-                console.log(data)
-                for (let count = 0; count < 50; count ++){
+                
+                for (let count = 0; count < 46; count ++){
                     const stripGame = data.applist.apps[count]
-                    gamelist.push(stripGame)
-                    setGames(gamelist)
+                    if(count > 36) {
+                        gamelist.push(stripGame)
+                        setGames(gamelist)
+                        console.log(stripGame)
+                    }
+                    
                 }
  
                 
@@ -31,15 +36,17 @@ function SteamGamesList(){
         fetchGames();
     
     
-    })
+    }, [] )
     return(
-        <div className="steam-api">
+        <div className={styles.steamApi}>
             <h2>Games List</h2>
+            <div className = {styles.gameArea}>
             {games.map(game => (
                 <>
-                <h3 key={game.name}>{game.name}</h3>
+                <h3 className={styles.PerfectDice}>{game.name}</h3>
                 </>
             ))}
+            </div>
         </div>
     );
 
