@@ -36,7 +36,7 @@ const Profile = ({ sessionUser, navigate }) => {
       .then((data) => {
         setUsername(data.user.username);
         setFirstName(data.user.firstName);
-        setLastName(data.user.LastName);
+        setLastName(data.user.lastName);
         setProfilePic(data.user.profilePic);
       })
       .then((data) => {

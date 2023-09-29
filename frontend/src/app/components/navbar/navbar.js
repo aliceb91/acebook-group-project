@@ -25,7 +25,7 @@ const Navbar = (props, logout) => {
             </div>
             <div className={styles.pageLinksSingle}>
                 <ul className={styles.listItem}>
-                    <a className={styles.listItem} href="/gallery">Squads</a>       
+                    <a className={styles.listItem} href="/gallery">Gallery</a>       
                 </ul>
             </div>
             
