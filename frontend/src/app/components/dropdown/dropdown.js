@@ -22,7 +22,10 @@ const Dropdown = ({ props, user }) => {
         );
     }
 
-    console.log('user' + user.profilePic)
+    const logout = () => {
+        window.localStorage.removeItem("token")
+        window.location.href ='/login'
+      }
 
     return (
         <div id='dropdown' className={styles.dropdown}> 
@@ -38,7 +41,6 @@ const Dropdown = ({ props, user }) => {
                     <DropdownItem leftIcon={<MessageIcon />} rightIcon='Messages' ></DropdownItem>
                     <DropdownItem leftIcon={<SettingsIcon />} rightIcon='Settings' goToMenu="test"></DropdownItem>
                     <DropdownItem leftIcon={<LogoutIcon />} rightIcon='Logout'></DropdownItem>
-
                 </div>
             </CSSTransition>
             <CSSTransition

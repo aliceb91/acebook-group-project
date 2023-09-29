@@ -6,7 +6,7 @@ import Dropdown from '../dropdown/dropdown';
 import NavbarItem from '../navbar/navbarItem.js';
 
 
-const Navbar = (props) => {
+const Navbar = (props, logout) => {
     return (
         <nav id='navbar' className={styles.navbar}> 
         <div className={styles.pageLinks}>
@@ -25,13 +25,13 @@ const Navbar = (props) => {
             </div>
             <div className={styles.pageLinksSingle}>
                 <ul className={styles.listItem}>
-                    <a className={styles.listItem} href="/squads">Squads</a>       
+                    <a className={styles.listItem} href="/gallery">Squads</a>       
                 </ul>
             </div>
             
             <ul className={styles.navbarNav}> 
                 <NavbarItem icon= {<PlusIcon />} >
-                    <Dropdown logout={props.logout} user={props.user}/>
+                    <Dropdown logout={logout} user={props.user}/>
                 </NavbarItem>
             </ul>
         </div>
